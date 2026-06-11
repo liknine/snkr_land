@@ -1,12 +1,9 @@
 Залей на GitHub содержимое этой папки.
 
-В GitHub Pages:
-Settings -> Pages -> Branch main -> Folder /root
+GitHub Pages:
+Branch: main
+Folder: /root
 
-Внутри:
-index.html
-assets/app.js
-assets/app.css
-data/products.json
-images/products/
-.nojekyll
+ВАЖНО:
+В корне репозитория должны лежать index.html, assets, data, images.
+Не загружай саму папку sneakers_land_UPLOAD_WITH_ALL_IMAGES.
