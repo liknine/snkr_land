@@ -1,14 +1,9 @@
-ЗАЛЕЙ НА GITHUB ИМЕННО ЭТИ ФАЙЛЫ В КОРЕНЬ РЕПОЗИТОРИЯ snkr_land.
+Залей содержимое этой папки в корень репозитория snkr_land.
+GitHub Pages: Branch main / Folder root.
+После загрузки: Cmd+Shift+R.
 
-В корне репозитория должны лежать:
-index.html
-assets/
-data/
-images/
-.nojekyll
-
-GitHub Pages:
-Settings -> Pages -> Branch main -> Folder /root
-
-Ссылка:
-https://liknine.github.io/snkr_land/
+Логика внутри:
+- избранное сохраняется в localStorage
+- корзина сохраняется в localStorage
+- размер и количество работают
+- после оформления заказ появляется в Мои заказы
