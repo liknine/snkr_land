@@ -7,7 +7,7 @@
     "price": 1450,
     "sizes": ["39", "40", "41", "42", "43"],
     "description": "Кожа, винтажный стиль, премиальный силуэт.",
-    "images": ["//sneakers_land.././images/products/test-1.png"],
+    "images": ["//sneakers_land../images/products/test-1.png"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -20,7 +20,7 @@
     "price": 750,
     "sizes": ["40", "41", "42", "43", "44"],
     "description": "Классический низкий силуэт на каждый день.",
-    "images": ["//sneakers_land.././images/products/test-2.svg"],
+    "images": ["//sneakers_land../images/products/test-2.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -33,7 +33,7 @@
     "price": 990,
     "sizes": ["39", "40", "41", "42", "43", "44"],
     "description": "Мягкая посадка и спокойный серый цвет.",
-    "images": ["//sneakers_land.././images/products/test-3.svg"],
+    "images": ["//sneakers_land../images/products/test-3.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -46,7 +46,7 @@
     "price": 890,
     "sizes": ["40", "41", "42", "43"],
     "description": "Контрастная баскетбольная классика.",
-    "images": ["//sneakers_land.././images/products/test-4.svg"],
+    "images": ["//sneakers_land../images/products/test-4.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -59,7 +59,7 @@
     "price": 860,
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "description": "Беговая эстетика и выразительные линии.",
-    "images": ["//sneakers_land.././images/products/test-5.svg"],
+    "images": ["//sneakers_land../images/products/test-5.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -72,7 +72,7 @@
     "price": 1550,
     "sizes": ["39", "40", "41", "42", "43"],
     "description": "Высокий силуэт Golden Goose с фирменной звездой.",
-    "images": ["//sneakers_land.././images/products/test-6.svg"],
+    "images": ["//sneakers_land../images/products/test-6.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
