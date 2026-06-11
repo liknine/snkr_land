@@ -5,17 +5,9 @@
     "name": "Super-Star Black",
     "color": "Black",
     "price": 1450,
-    "sizes": [
-      "39",
-      "40",
-      "41",
-      "42",
-      "43"
-    ],
+    "sizes": ["39", "40", "41", "42", "43"],
     "description": "Кожа, винтажный стиль, премиальный силуэт.",
-    "images": [
-      "/images/products/test-1.png"
-    ],
+    "images": ["././images/products/test-1.png"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -26,17 +18,9 @@
     "name": "Samba OG White Black",
     "color": "White Black",
     "price": 750,
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
+    "sizes": ["40", "41", "42", "43", "44"],
     "description": "Классический низкий силуэт на каждый день.",
-    "images": [
-      "/images/products/test-2.svg"
-    ],
+    "images": ["././images/products/test-2.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -47,18 +31,9 @@
     "name": "2002R Grey",
     "color": "Grey",
     "price": 990,
-    "sizes": [
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
+    "sizes": ["39", "40", "41", "42", "43", "44"],
     "description": "Мягкая посадка и спокойный серый цвет.",
-    "images": [
-      "/images/products/test-3.svg"
-    ],
+    "images": ["././images/products/test-3.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -69,16 +44,9 @@
     "name": "Dunk Low Panda",
     "color": "Black White",
     "price": 890,
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43"
-    ],
+    "sizes": ["40", "41", "42", "43"],
     "description": "Контрастная баскетбольная классика.",
-    "images": [
-      "/images/products/test-4.svg"
-    ],
+    "images": ["././images/products/test-4.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -89,18 +57,9 @@
     "name": "GEL-Kayano 14 White Black",
     "color": "White Black",
     "price": 860,
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45"
-    ],
+    "sizes": ["40", "41", "42", "43", "44", "45"],
     "description": "Беговая эстетика и выразительные линии.",
-    "images": [
-      "/images/products/test-5.svg"
-    ],
+    "images": ["././images/products/test-5.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
@@ -111,17 +70,9 @@
     "name": "Francy White Black",
     "color": "White Black",
     "price": 1550,
-    "sizes": [
-      "39",
-      "40",
-      "41",
-      "42",
-      "43"
-    ],
+    "sizes": ["39", "40", "41", "42", "43"],
     "description": "Высокий силуэт Golden Goose с фирменной звездой.",
-    "images": [
-      "/images/products/test-6.svg"
-    ],
+    "images": ["././images/products/test-6.svg"],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-11T09:00:00.000Z"
