@@ -1,41 +1,18 @@
-# SNKR LAND frontend upload
+# GitHub Pages upload
 
-This archive contains only the frontend files that should be uploaded to the GitHub repository.
+Upload all files from this archive to the repository root.
 
-## Upload to GitHub
+GitHub Pages settings:
+- Branch: main
+- Folder: /docs
 
-Copy all files from this folder into the repository root, then run:
+This package uses `base: "./"` in `vite.config.ts`, so it works even if the repository URL/path is not exactly `/snkr_land/`.
 
-```bash
-git add .
-git commit -m "Update SNKR LAND frontend"
-git push
-```
-
-## GitHub Pages settings
-
-Use:
-
-- Branch: `main`
-- Folder: `/docs`
-
-Mini App URL:
-
-```text
-https://liknine.github.io/snkr_land/
-```
-
-## Local development
-
+After changing source files locally:
 ```bash
 npm install
-npm run dev
-```
-
-## Rebuild docs for GitHub Pages
-
-```bash
 npm run build
+git add .
+git commit -m "Update frontend"
+git push
 ```
-
-The Vite config builds into `docs/`.
