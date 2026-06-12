@@ -29,7 +29,7 @@
     "deliveryType": "delivery",
     "address": "K",
     "comment": "",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-12T22:46:41",
     "updatedAt": ""
   },
