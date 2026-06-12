@@ -14,7 +14,7 @@
     ],
     "description": "Кожа, винтажный стиль, премиальный силуэт.",
     "images": [
-      "./images/products/test-1.png"
+      "/snkr_land/images/products/test-1.png"
     ],
     "isFavorite": false,
     "isActive": true,
@@ -35,7 +35,7 @@
     ],
     "description": "Классический низкий силуэт на каждый день.",
     "images": [
-      "./images/products/test-2.svg"
+      "/snkr_land/images/products/test-2.svg"
     ],
     "isFavorite": false,
     "isActive": true,
@@ -57,7 +57,7 @@
     ],
     "description": "Мягкая посадка и спокойный серый цвет.",
     "images": [
-      "./images/products/test-3.svg"
+      "/snkr_land/images/products/test-3.svg"
     ],
     "isFavorite": false,
     "isActive": true,
@@ -77,7 +77,7 @@
     ],
     "description": "Контрастная баскетбольная классика.",
     "images": [
-      "./images/products/test-4.svg"
+      "/snkr_land/images/products/test-4.svg"
     ],
     "isFavorite": false,
     "isActive": true,
@@ -99,7 +99,7 @@
     ],
     "description": "Беговая эстетика и выразительные линии.",
     "images": [
-      "./images/products/test-5.svg"
+      "/snkr_land/images/products/test-5.svg"
     ],
     "isFavorite": false,
     "isActive": true,
@@ -120,7 +120,7 @@
     ],
     "description": "Высокий силуэт Golden Goose с фирменной звездой.",
     "images": [
-      "./images/products/test-6.svg"
+      "/snkr_land/images/products/test-6.svg"
     ],
     "isFavorite": false,
     "isActive": true,
