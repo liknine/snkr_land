@@ -1,19 +1,19 @@
 [
   {
-    "id": "1781293518521",
-    "brand": "sdf",
-    "name": "sdf",
-    "color": "sdf",
-    "price": 0,
+    "id": "1781295156753",
+    "brand": "ппп",
+    "name": "гггг",
+    "color": "ррр",
+    "price": 66,
     "sizes": [
       "43"
     ],
-    "description": "svc",
+    "description": "впар",
     "images": [
-      "vbd"
+      "images/products/ppp-gggg-1-d80b12a2bd.jpg"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-12T22:45:25.252925"
+    "createdAt": "2026-06-12T23:13:04.409527"
   }
 ]
