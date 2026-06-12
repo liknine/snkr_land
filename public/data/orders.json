@@ -1,0 +1,132 @@
+[
+  {
+    "id": "4",
+    "orderNumber": 4,
+    "clientOrderId": "snkr-1781293601285",
+    "telegramId": "1639462053",
+    "username": "liknine",
+    "productId": "1781293518521",
+    "productSnapshot": {
+      "id": "1781293518521",
+      "brand": "sdf",
+      "name": "sdf",
+      "color": "sdf",
+      "price": 0,
+      "sizes": [
+        "43"
+      ],
+      "images": [
+        "vbd"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-12T22:46:41"
+    },
+    "size": "43",
+    "quantity": 1,
+    "totalPrice": 0,
+    "phone": "Kl",
+    "deliveryType": "delivery",
+    "address": "K",
+    "comment": "",
+    "status": "new",
+    "createdAt": "2026-06-12T22:46:41",
+    "updatedAt": ""
+  },
+  {
+    "id": "3",
+    "orderNumber": 3,
+    "clientOrderId": "snkr-1781291336706",
+    "telegramId": "1639462053",
+    "username": "liknine",
+    "productId": "1",
+    "productSnapshot": {
+      "id": "1",
+      "brand": "GOLDEN GOOSE",
+      "name": "Super-Star Black",
+      "color": "Black",
+      "price": 1450,
+      "sizes": [],
+      "images": [
+        "/snkr_land/images/products/test-1.png"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-12T22:08:56"
+    },
+    "size": "40",
+    "quantity": 1,
+    "totalPrice": 1450,
+    "phone": "Jl",
+    "deliveryType": "delivery",
+    "address": "Nkbbkj",
+    "comment": "",
+    "status": "accepted",
+    "createdAt": "2026-06-12T22:08:56",
+    "updatedAt": ""
+  },
+  {
+    "id": "2",
+    "orderNumber": 2,
+    "clientOrderId": "snkr-1781288114874",
+    "telegramId": "1639462053",
+    "username": "liknine",
+    "productId": "1",
+    "productSnapshot": {
+      "id": "1",
+      "brand": "GOLDEN GOOSE",
+      "name": "Super-Star Black",
+      "color": "Black",
+      "price": 1450,
+      "sizes": [],
+      "images": [
+        "/snkr_land/images/products/test-1.png"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-12T21:15:15"
+    },
+    "size": "42",
+    "quantity": 1,
+    "totalPrice": 1450,
+    "phone": "Счяяч",
+    "deliveryType": "delivery",
+    "address": "Сфыыфв",
+    "comment": "",
+    "status": "accepted",
+    "createdAt": "2026-06-12T21:15:15",
+    "updatedAt": ""
+  },
+  {
+    "id": "1",
+    "orderNumber": 1,
+    "clientOrderId": "snkr-1781286628614",
+    "telegramId": "1639462053",
+    "username": "liknine",
+    "productId": "1",
+    "productSnapshot": {
+      "id": "1",
+      "brand": "GOLDEN GOOSE",
+      "name": "Super-Star Black",
+      "color": "Black",
+      "price": 1450,
+      "sizes": [],
+      "images": [
+        "/snkr_land/images/products/test-1.png"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-12T20:50:28"
+    },
+    "size": "42",
+    "quantity": 1,
+    "totalPrice": 1450,
+    "phone": "Вфывфы",
+    "deliveryType": "delivery",
+    "address": "Фев",
+    "comment": "",
+    "status": "accepted",
+    "createdAt": "2026-06-12T20:50:28",
+    "updatedAt": ""
+  }
+]
