@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "1781295156753",
+    "brand": "ппп",
+    "name": "гггг",
+    "color": "ррр",
+    "price": 66,
+    "sizes": [
+      "43"
+    ],
+    "description": "впар",
+    "images": [
+      "images/products/ppp-gggg-1-d80b12a2bd.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-12T23:13:04.409527"
+  }
+]
