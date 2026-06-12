@@ -1,18 +1,17 @@
-# GitHub upload for snkr_land
+# SNKR LAND - original frontend restore
 
-This archive is fixed so the site works in BOTH GitHub Pages modes:
+This archive is made from the original files the user uploaded.
+No app logic was rewritten.
+No React screens, Telegram logic, cart/checkout logic, products, or styles were changed.
 
-1. Branch: main, Folder: /docs
-2. Branch: main, Folder: /(root)
+Upload the contents of this folder to the GitHub repository.
 
 Recommended GitHub Pages setting:
-Branch: main
-Folder: /docs
+- Branch: main
+- Folder: /docs
 
-If the page is still white:
-1. Open the browser in incognito or hard refresh: Cmd+Shift+R
-2. Check GitHub Pages source. Use /docs first.
-3. Make sure the repo contains docs/assets/index-*.js and docs/assets/index-*.css.
-4. Wait 1-3 minutes after push; GitHub Pages can cache the old build.
+Mini App URL:
+https://liknine.github.io/snkr_land/
 
-Upload the CONTENTS of this folder to the repo root, not the folder itself.
+Important:
+- The order submit button that uses Telegram.WebApp.sendData works only when the site is opened as a Telegram Mini App through the bot button, not as a normal pasted/opened browser link.

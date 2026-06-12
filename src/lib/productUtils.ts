@@ -9,7 +9,7 @@ export function formatPrice(price: number | string): string {
 }
 
 export function productImage(product: Pick<Product, "images">): string {
-  return product.images[0] || "./images/products/placeholder.svg";
+  return product.images[0] || "/images/products/placeholder.svg";
 }
 
 export function productTitle(product: Pick<Product, "brand" | "name" | "color">): string {
