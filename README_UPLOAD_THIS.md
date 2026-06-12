@@ -1,17 +1,8 @@
-# Upload this to GitHub
+UPLOAD THIS FOLDER CONTENTS TO GITHUB
 
-This is the final static GitHub Pages build for Sneakers Land.
+1. Upload the contents of this folder to the repository root.
+2. GitHub Pages setting: Branch main, Folder /docs.
+3. Open: https://liknine.github.io/snkr_land/?v=docs-full-fixed
 
-Upload the CONTENTS of this folder to the root of the `snkr_land` repository.
-
-GitHub Pages settings:
-- Branch: main
-- Folder: /(root)
-
-URL:
-https://liknine.github.io/snkr_land/
-
-Important:
-- Do not upload the zip itself. Unzip it and upload the files/folders inside.
-- This archive includes `index.html`, `assets/`, `data/`, `images/`, `.nojekyll`, and a duplicate `docs/` fallback.
-- `telegram-web-app.js` is included in both root and docs HTML files.
+Important: this archive includes the full static build both in root and in /docs.
+If GitHub Pages is set to /docs, it will now have docs/assets, docs/data, and docs/images, so the page will not be white.
