@@ -1,129 +1,19 @@
 [
   {
-    "id": "1",
-    "brand": "GOLDEN GOOSE",
-    "name": "Super-Star Black",
-    "color": "Black",
-    "price": 1450,
+    "id": "1781293518521",
+    "brand": "sdf",
+    "name": "sdf",
+    "color": "sdf",
+    "price": 0,
     "sizes": [
-      "39",
-      "40",
-      "41",
-      "42",
       "43"
     ],
-    "description": "Кожа, винтажный стиль, премиальный силуэт.",
+    "description": "svc",
     "images": [
-      "/snkr_land/images/products/test-1.png"
+      "vbd"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-11T09:00:00.000Z"
-  },
-  {
-    "id": "2",
-    "brand": "ADIDAS",
-    "name": "Samba OG White Black",
-    "color": "White Black",
-    "price": 750,
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
-    "description": "Классический низкий силуэт на каждый день.",
-    "images": [
-      "/snkr_land/images/products/test-2.svg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-11T09:00:00.000Z"
-  },
-  {
-    "id": "3",
-    "brand": "NEW BALANCE",
-    "name": "2002R Grey",
-    "color": "Grey",
-    "price": 990,
-    "sizes": [
-      "39",
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
-    "description": "Мягкая посадка и спокойный серый цвет.",
-    "images": [
-      "/snkr_land/images/products/test-3.svg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-11T09:00:00.000Z"
-  },
-  {
-    "id": "4",
-    "brand": "NIKE",
-    "name": "Dunk Low Panda",
-    "color": "Black White",
-    "price": 890,
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43"
-    ],
-    "description": "Контрастная баскетбольная классика.",
-    "images": [
-      "/snkr_land/images/products/test-4.svg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-11T09:00:00.000Z"
-  },
-  {
-    "id": "5",
-    "brand": "ASICS",
-    "name": "GEL-Kayano 14 White Black",
-    "color": "White Black",
-    "price": 860,
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45"
-    ],
-    "description": "Беговая эстетика и выразительные линии.",
-    "images": [
-      "/snkr_land/images/products/test-5.svg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-11T09:00:00.000Z"
-  },
-  {
-    "id": "6",
-    "brand": "GOLDEN GOOSE",
-    "name": "Francy White Black",
-    "color": "White Black",
-    "price": 1550,
-    "sizes": [
-      "39",
-      "40",
-      "41",
-      "42",
-      "43"
-    ],
-    "description": "Высокий силуэт Golden Goose с фирменной звездой.",
-    "images": [
-      "/snkr_land/images/products/test-6.svg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-11T09:00:00.000Z"
+    "createdAt": "2026-06-12T22:45:25.252925"
   }
 ]
