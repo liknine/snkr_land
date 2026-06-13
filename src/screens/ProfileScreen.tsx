@@ -2,9 +2,9 @@ import { ArrowRight, Box, CalendarDays, CreditCard, Heart, Info, Ruler } from "l
 import orderShoe from "../assets/images/order-shoe-v4.png";
 import profileTitle from "../assets/titles/profile-title-v5.png";
 import type { Order } from "../lib/api";
+import { openManagerChat } from "../lib/managerLink";
 import { productImage } from "../lib/productUtils";
 import type { Screen } from "../types";
-import { openManagerChat } from "../lib/managerLink";
 
 type ProfileScreenProps = {
   latestOrder?: Order;

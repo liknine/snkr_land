@@ -145,91 +145,48 @@ export async function fetchProducts(): Promise<Product[]> {
   return [];
 }
 
+const MY_ORDER_IDS_KEY = "snkr_land_my_order_ids_v2";
+
 export function getMyOrderIds(): string[] {
   try {
-    const raw = window.localStorage.getItem("snkr_my_order_ids") || "[]";
-    const parsed = JSON.parse(raw);
+    const parsed = JSON.parse(window.localStorage.getItem(MY_ORDER_IDS_KEY) || "[]");
     return Array.isArray(parsed) ? parsed.map(String).filter(Boolean) : [];
   } catch {
     return [];
   }
 }
 
-export function saveMyOrderId(clientOrderId?: string | null) {
-  const id = String(clientOrderId || "").trim();
-  if (!id) return;
-  const ids = new Set(getMyOrderIds());
-  ids.add(id);
-  window.localStorage.setItem("snkr_my_order_ids", JSON.stringify(Array.from(ids)));
+export function saveMyOrderId(clientOrderId?: string) {
+  if (!clientOrderId) return;
+  try {
+    const ids = new Set(getMyOrderIds());
+    ids.add(String(clientOrderId));
+    window.localStorage.setItem(MY_ORDER_IDS_KEY, JSON.stringify(Array.from(ids)));
+  } catch {
+    // ignore storage errors
+  }
 }
 
-function currentTelegramId(): string {
-  const value = getTelegramUserId();
-  if (value === undefined || value === null || value === 0) return "";
-  return String(value).trim();
-}
+function sameIdentity(order: any, telegramId: number | null, username: string) {
+  const orderTelegramId = String(order.telegramId ?? order.telegram_id ?? order.telegram_user_id ?? order.user_id ?? "").trim();
+  const orderUsername = normalizeUsername(String(order.username ?? order.customer?.username ?? "")).toLowerCase();
+  const orderClientId = String(order.clientOrderId ?? order.client_order_id ?? "").trim();
+  const normalizedUsername = normalizeUsername(username || "").toLowerCase();
+  const myOrderIds = new Set(getMyOrderIds());
 
-function currentUsername(): string {
-  const username = normalizeUsername(getTelegramUsername() || "").toLowerCase();
-  if (!username || username === "dev_user") return "";
-  return username;
-}
+  if (telegramId && orderTelegramId && orderTelegramId === String(telegramId)) return true;
+  if (normalizedUsername && normalizedUsername !== "dev_user" && orderUsername && orderUsername === normalizedUsername) return true;
+  if (orderClientId && myOrderIds.has(orderClientId)) return true;
 
-export function filterOnlyMyOrders(orders: any[]): Order[] {
-  if (!Array.isArray(orders)) return [];
-
-  const myTelegramId = currentTelegramId();
-  const myUsername = currentUsername();
-  const myClientOrderIds = new Set(getMyOrderIds());
-
-  // Critical privacy rule: if we have no user identity and no locally created order ids,
-  // show nothing. Never fall back to displaying the public orders.json list.
-  if (!myTelegramId && !myUsername && myClientOrderIds.size === 0) return [];
-
-  return orders
-    .filter((order: any) => {
-      const orderTelegramId = String(
-        order.telegramId ??
-        order.telegram_id ??
-        order.telegram_user_id ??
-        order.user_id ??
-        order.userId ??
-        ""
-      ).trim();
-
-      const orderUsername = normalizeUsername(String(
-        order.username ??
-        order.customer?.username ??
-        ""
-      )).toLowerCase();
-
-      const orderClientId = String(
-        order.clientOrderId ??
-        order.client_order_id ??
-        ""
-      ).trim();
-
-      if (myTelegramId && orderTelegramId && myTelegramId === orderTelegramId) return true;
-      if (myUsername && orderUsername && myUsername === orderUsername) return true;
-      if (orderClientId && myClientOrderIds.has(orderClientId)) return true;
-      return false;
-    })
-    .map(normalizeOrder);
-}
-
-async function fetchJsonOrders(url: string): Promise<any[]> {
-  const response = await fetch(url, { cache: "no-store" });
-  if (!response.ok) return [];
-  const data = await response.json();
-  return Array.isArray(data) ? data : (Array.isArray(data.orders) ? data.orders : []);
+  return false;
 }
 
 export async function fetchOrders(): Promise<Order[]> {
   const params = new URLSearchParams();
-  const telegramId = currentTelegramId();
-  const username = currentUsername();
+  const telegramId = getTelegramUserId() ?? null;
+  const username = normalizeUsername(getTelegramUsername());
 
-  if (telegramId) params.set("telegram_id", telegramId);
+  if (telegramId) params.set("telegram_id", String(telegramId));
   if (username) params.set("username", username);
 
   if (API_BASE && params.size) {
@@ -243,19 +200,17 @@ export async function fetchOrders(): Promise<Order[]> {
     }
 
     const data = (await response.json()) as ApiOrdersResponse;
-    return filterOnlyMyOrders(data.orders ?? []);
+    return (data.orders ?? []).map(normalizeOrder);
   }
 
+  // Static GitHub Pages mode: the bot publishes docs/data/orders.json after every order/status update.
+  // This makes "Мои заказы" persistent even without a public backend URL.
   try {
-    if (telegramId) {
-      const personalUrl = `${import.meta.env.BASE_URL}data/orders/users/${encodeURIComponent(telegramId)}.json?v=${Date.now()}`;
-      const personalOrders = await fetchJsonOrders(personalUrl);
-      if (personalOrders.length) return filterOnlyMyOrders(personalOrders);
-    }
-
-    const publicUrl = `${import.meta.env.BASE_URL}data/orders.json?v=${Date.now()}`;
-    const publicOrders = await fetchJsonOrders(publicUrl);
-    return filterOnlyMyOrders(publicOrders);
+    const response = await fetch(`${import.meta.env.BASE_URL}data/orders.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) return [];
+    const data = await response.json();
+    const list = Array.isArray(data) ? data : (data.orders ?? []);
+    return list.filter((order: any) => sameIdentity(order, telegramId, username)).map(normalizeOrder);
   } catch (error) {
     console.error("Static orders fetch failed", error);
     return [];

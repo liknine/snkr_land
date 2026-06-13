@@ -1,14 +1,19 @@
-# Private orders patch
+# Sneakers Land patch
 
-Replace only these files/folders:
+Replace only these files in the project:
 
-- bot/github_storage.py
 - src/App.tsx
 - src/lib/api.ts
+- src/lib/managerLink.ts
+- src/screens/ProfileScreen.tsx
+- src/screens/AboutScreen.tsx
+- src/screens/PaymentScreen.tsx
+- src/screens/OrdersScreen.tsx
+- src/components/SideMenu.tsx
 - docs/index.html
 - docs/assets/
 
-Do not replace/delete:
+Do not overwrite:
 
 - data/products.json
 - data/orders.json
@@ -17,10 +22,8 @@ Do not replace/delete:
 - images/products/
 - docs/images/products/
 
-What it fixes:
+Fixes:
 
-- Mini App no longer shows all public orders to every client.
-- It first tries data/orders/users/<telegramId>.json.
-- If that file is absent, it reads data/orders.json but strictly filters by telegramId, username, or local client_order_id only.
-- If there is no reliable identity/local order id, it shows no orders.
-- Backend GitHub sync publishes per-user order snapshots at data/orders/users/<telegramId>.json and docs/data/orders/users/<telegramId>.json.
+- Profile button "Связаться с менеджером" opens @Il_7in with text "есть вопрос по заказу".
+- Same manager link from About, Payment, Orders and side menu.
+- "Мои заказы" does not show all orders to everyone; it filters by telegram id, username or local client_order_id.

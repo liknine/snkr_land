@@ -3,7 +3,6 @@ import { useState } from "react";
 import type { Order, OrderStatus } from "../lib/api";
 import { statusLabels } from "../lib/api";
 import { formatPrice, productImage } from "../lib/productUtils";
-import { openManagerChat } from "../lib/managerLink";
 
 type OrdersScreenProps = {
   orders: Order[];
@@ -22,7 +21,6 @@ function statusTone(status: OrderStatus): "orange" | "green" {
 
 export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScreenProps) {
   const [activeOrder, setActiveOrder] = useState<Order | null>(null);
-  const contactManager = onManager || openManagerChat;
 
   return (
     <section className="screen orders-screen" aria-labelledby="orders-page-title">
@@ -69,7 +67,7 @@ export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScr
         </div>
       )}
 
-      <button className="detail-action orders-contact" type="button" onClick={contactManager}>
+      <button className="detail-action orders-contact" type="button" onClick={onManager}>
         <MessageCircle size={22} strokeWidth={1.55} aria-hidden="true" />
         <span>Связаться с менеджером</span>
       </button>
@@ -129,7 +127,7 @@ export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScr
               </div>
             </div>
 
-            <button className="order-primary-action" type="button" onClick={contactManager}>
+            <button className="order-primary-action" type="button" onClick={onManager}>
               <MessageCircle size={22} strokeWidth={1.55} />
               <span>Связаться с менеджером</span>
             </button>

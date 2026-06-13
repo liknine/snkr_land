@@ -15,14 +15,15 @@ import { ProductDetailScreen } from "./screens/ProductDetailScreen";
 import { CartScreen } from "./screens/CartScreen";
 import { CheckoutSuccessScreen } from "./screens/CheckoutSuccessScreen";
 import type { Product } from "./data/products";
-import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, saveMyOrderId, WAITING_TIME, type CartItem, type Order } from "./lib/api";
+import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, saveMyOrderId, WAITING_TIME, type CartItem, type Order } from "./lib/api";
 import { getFavorites, isFavorite, toggleFavorite } from "./lib/favorites";
 import { getTelegramUserId, getTelegramUsername, getTelegramWebApp, sendTelegramData } from "./lib/telegram";
 import { ProfileScreen } from "./screens/ProfileScreen";
+import { openManagerChat } from "./lib/managerLink";
 import type { Screen } from "./types";
 
 
-const LOCAL_ORDERS_KEY = "snkr_land_my_orders_v2";
+const LOCAL_ORDERS_KEY = "snkr_land_orders";
 
 function readLocalOrders(): Order[] {
   try {
@@ -252,7 +253,7 @@ export default function App() {
           {screen === "delivery" && <DeliveryScreen onBack={() => setScreen("profile")} />}
           {screen === "payment" && <PaymentScreen onBack={() => setScreen("profile")} />}
           {screen === "about" && <AboutScreen onBack={() => setScreen("profile")} />}
-          {screen === "orders" && <OrdersScreen orders={orders} onBack={() => setScreen("profile")} onCatalog={() => setScreen("catalog")} onManager={() => setScreen("about")} />}
+          {screen === "orders" && <OrdersScreen orders={orders} onBack={() => setScreen("profile")} onCatalog={() => setScreen("catalog")} onManager={openManagerChat} />}
           {screen === "product" && selectedProduct && <ProductDetailScreen product={selectedProduct} isFavorite={isFavorite(selectedProduct.id, favorites)} onBack={() => setScreen("catalog")} onCart={(size) => addToCart(selectedProduct, size)} onToggleFavorite={handleToggleFavorite} />}
           {screen === "cart" && (
             <CartScreen

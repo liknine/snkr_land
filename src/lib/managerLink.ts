@@ -1,10 +1,18 @@
-const MANAGER_URL = "https://t.me/Il_7in?text=%D0%B5%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D1%83";
+const MANAGER_USERNAME = "Il_7in";
+const MANAGER_TEXT = "есть вопрос по заказу";
 
-export function openManagerChat() {
-  const telegram = window.Telegram?.WebApp as any;
-  if (telegram?.openTelegramLink) {
-    telegram.openTelegramLink(MANAGER_URL);
+export function getManagerUrl(): string {
+  return `https://t.me/${MANAGER_USERNAME}?text=${encodeURIComponent(MANAGER_TEXT)}`;
+}
+
+export function openManagerChat(): void {
+  const url = getManagerUrl();
+  const tg = window.Telegram?.WebApp;
+
+  if (tg && typeof (tg as any).openTelegramLink === "function") {
+    (tg as any).openTelegramLink(url);
     return;
   }
-  window.open(MANAGER_URL, "_blank", "noopener,noreferrer");
+
+  window.open(url, "_blank", "noopener,noreferrer");
 }

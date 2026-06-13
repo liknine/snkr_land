@@ -23,7 +23,7 @@ const serviceItems: Array<{ label: string; Icon: typeof MapPin; screen?: Screen 
   { label: "Доставка по РБ", Icon: Truck, screen: "delivery" },
   { label: "Оплата", Icon: CreditCard, screen: "payment" },
   { label: "О магазине", Icon: Info, screen: "about" },
-  { label: "Связаться с менеджером", Icon: MessageCircle, screen: "about" },
+  { label: "Связаться с менеджером", Icon: MessageCircle, screen: undefined },
 ];
 
 export function SideMenu({ isOpen, activeScreen, onClose, onNavigate }: SideMenuProps) {
