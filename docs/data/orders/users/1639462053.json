@@ -30,7 +30,7 @@
     "deliveryType": "delivery",
     "address": "Д",
     "comment": "",
-    "status": "accepted",
+    "status": "ready",
     "createdAt": "2026-06-13T17:08:57",
     "updatedAt": ""
   },
