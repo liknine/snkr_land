@@ -8,25 +8,19 @@ Replace only these files/folders:
 - docs/index.html
 - docs/assets/
 
-Do not overwrite product/order data files:
+Do not replace/delete:
 
 - data/products.json
 - data/orders.json
 - docs/data/products.json
 - docs/data/orders.json
+- images/products/
 - docs/images/products/
 
-What this fixes:
+What it fixes:
 
-- “Мои заказы” no longer shows all orders to every user.
-- Frontend first tries to read per-user orders: data/orders/users/<telegramId>.json
-- Fallback data/orders.json is strictly filtered by telegramId / username / local clientOrderId.
-- Old poisoned localStorage key is ignored; new key is snkr_land_my_orders_v2.
-- Backend GitHub sync now writes per-user order snapshots when publishing orders.
-
-After replacing files:
-
-1. Restart bot.
-2. Re-upload docs/index.html and docs/assets to GitHub Pages.
-3. Do not overwrite docs/data/products.json or docs/data/orders.json.
-4. Open Mini App with ?v=private-orders-final to clear cache.
+- Mini App no longer shows all public orders to every client.
+- It first tries data/orders/users/<telegramId>.json.
+- If that file is absent, it reads data/orders.json but strictly filters by telegramId, username, or local client_order_id only.
+- If there is no reliable identity/local order id, it shows no orders.
+- Backend GitHub sync publishes per-user order snapshots at data/orders/users/<telegramId>.json and docs/data/orders/users/<telegramId>.json.

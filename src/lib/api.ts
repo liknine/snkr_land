@@ -145,51 +145,92 @@ export async function fetchProducts(): Promise<Product[]> {
   return [];
 }
 
-function normalizeOrderTelegramId(order: any) {
-  return String(order.telegramId ?? order.telegram_id ?? order.telegram_user_id ?? order.user_id ?? "").trim();
+export function getMyOrderIds(): string[] {
+  try {
+    const raw = window.localStorage.getItem("snkr_my_order_ids") || "[]";
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.map(String).filter(Boolean) : [];
+  } catch {
+    return [];
+  }
 }
 
-function normalizeOrderUsername(order: any) {
-  return normalizeUsername(String(order.username ?? order.customer?.username ?? ""));
+export function saveMyOrderId(clientOrderId?: string | null) {
+  const id = String(clientOrderId || "").trim();
+  if (!id) return;
+  const ids = new Set(getMyOrderIds());
+  ids.add(id);
+  window.localStorage.setItem("snkr_my_order_ids", JSON.stringify(Array.from(ids)));
 }
 
-function normalizeOrderClientId(order: any) {
-  return String(order.clientOrderId ?? order.client_order_id ?? "").trim();
+function currentTelegramId(): string {
+  const value = getTelegramUserId();
+  if (value === undefined || value === null || value === 0) return "";
+  return String(value).trim();
 }
 
-export function isOrderOwner(order: any, localClientOrderIdsInput: string[] = []) {
-  const telegramId = getTelegramUserId() ?? null;
-  const username = normalizeUsername(getTelegramUsername());
-  const localClientOrderIds = new Set(localClientOrderIdsInput.filter(Boolean).map(String));
-
-  const orderTelegramId = normalizeOrderTelegramId(order);
-  const orderUsername = normalizeOrderUsername(order);
-  const orderClientOrderId = normalizeOrderClientId(order);
-
-  // Never show every order as a fallback. If identity is unknown, only show orders
-  // created on this device/session via client_order_id.
-  if (telegramId && orderTelegramId && orderTelegramId === String(telegramId)) return true;
-  if (username && username !== "dev_user" && orderUsername && orderUsername === username) return true;
-  if (orderClientOrderId && localClientOrderIds.has(orderClientOrderId)) return true;
-  return false;
+function currentUsername(): string {
+  const username = normalizeUsername(getTelegramUsername() || "").toLowerCase();
+  if (!username || username === "dev_user") return "";
+  return username;
 }
 
-async function fetchJsonList(url: string): Promise<any[]> {
+export function filterOnlyMyOrders(orders: any[]): Order[] {
+  if (!Array.isArray(orders)) return [];
+
+  const myTelegramId = currentTelegramId();
+  const myUsername = currentUsername();
+  const myClientOrderIds = new Set(getMyOrderIds());
+
+  // Critical privacy rule: if we have no user identity and no locally created order ids,
+  // show nothing. Never fall back to displaying the public orders.json list.
+  if (!myTelegramId && !myUsername && myClientOrderIds.size === 0) return [];
+
+  return orders
+    .filter((order: any) => {
+      const orderTelegramId = String(
+        order.telegramId ??
+        order.telegram_id ??
+        order.telegram_user_id ??
+        order.user_id ??
+        order.userId ??
+        ""
+      ).trim();
+
+      const orderUsername = normalizeUsername(String(
+        order.username ??
+        order.customer?.username ??
+        ""
+      )).toLowerCase();
+
+      const orderClientId = String(
+        order.clientOrderId ??
+        order.client_order_id ??
+        ""
+      ).trim();
+
+      if (myTelegramId && orderTelegramId && myTelegramId === orderTelegramId) return true;
+      if (myUsername && orderUsername && myUsername === orderUsername) return true;
+      if (orderClientId && myClientOrderIds.has(orderClientId)) return true;
+      return false;
+    })
+    .map(normalizeOrder);
+}
+
+async function fetchJsonOrders(url: string): Promise<any[]> {
   const response = await fetch(url, { cache: "no-store" });
   if (!response.ok) return [];
   const data = await response.json();
-  if (Array.isArray(data)) return data;
-  if (Array.isArray(data.orders)) return data.orders;
-  return [];
+  return Array.isArray(data) ? data : (Array.isArray(data.orders) ? data.orders : []);
 }
 
-export async function fetchOrders(localClientOrderIdsInput: string[] = []): Promise<Order[]> {
+export async function fetchOrders(): Promise<Order[]> {
   const params = new URLSearchParams();
-  const telegramId = getTelegramUserId() ?? null;
-  const username = normalizeUsername(getTelegramUsername());
+  const telegramId = currentTelegramId();
+  const username = currentUsername();
 
-  if (telegramId) params.set("telegram_id", String(telegramId));
-  if (username && username !== "dev_user") params.set("username", username);
+  if (telegramId) params.set("telegram_id", telegramId);
+  if (username) params.set("username", username);
 
   if (API_BASE && params.size) {
     const response = await fetch(`${API_BASE}/api/orders?${params.toString()}`, {
@@ -202,36 +243,19 @@ export async function fetchOrders(localClientOrderIdsInput: string[] = []): Prom
     }
 
     const data = (await response.json()) as ApiOrdersResponse;
-    return (data.orders ?? []).filter((order: any) => isOrderOwner(order, localClientOrderIdsInput)).map(normalizeOrder);
+    return filterOnlyMyOrders(data.orders ?? []);
   }
 
   try {
-    const base = import.meta.env.BASE_URL;
-    const urls: string[] = [];
-
-    // Preferred: per-user public snapshot generated by the bot. This prevents the UI
-    // from ever loading the global orders list when Telegram provides a user id.
-    if (telegramId) urls.push(`${base}data/orders/users/${telegramId}.json?v=${Date.now()}`);
-
-    // Fallback for already-created local session orders. This still strictly filters
-    // by telegram id / username / client_order_id and never returns all orders.
-    urls.push(`${base}data/orders.json?v=${Date.now()}`);
-
-    const merged: Order[] = [];
-    const seen = new Set<string>();
-    for (const url of urls) {
-      const list = await fetchJsonList(url);
-      for (const rawOrder of list) {
-        if (!isOrderOwner(rawOrder, localClientOrderIdsInput)) continue;
-        const order = normalizeOrder(rawOrder as Order);
-        const key = String(order.clientOrderId || order.id || order.orderNumber);
-        if (!seen.has(key)) {
-          seen.add(key);
-          merged.push(order);
-        }
-      }
+    if (telegramId) {
+      const personalUrl = `${import.meta.env.BASE_URL}data/orders/users/${encodeURIComponent(telegramId)}.json?v=${Date.now()}`;
+      const personalOrders = await fetchJsonOrders(personalUrl);
+      if (personalOrders.length) return filterOnlyMyOrders(personalOrders);
     }
-    return merged;
+
+    const publicUrl = `${import.meta.env.BASE_URL}data/orders.json?v=${Date.now()}`;
+    const publicOrders = await fetchJsonOrders(publicUrl);
+    return filterOnlyMyOrders(publicOrders);
   } catch (error) {
     console.error("Static orders fetch failed", error);
     return [];

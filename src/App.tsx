@@ -15,10 +15,9 @@ import { ProductDetailScreen } from "./screens/ProductDetailScreen";
 import { CartScreen } from "./screens/CartScreen";
 import { CheckoutSuccessScreen } from "./screens/CheckoutSuccessScreen";
 import type { Product } from "./data/products";
-import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, isOrderOwner, WAITING_TIME, type CartItem, type Order } from "./lib/api";
+import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, saveMyOrderId, WAITING_TIME, type CartItem, type Order } from "./lib/api";
 import { getFavorites, isFavorite, toggleFavorite } from "./lib/favorites";
 import { getTelegramUserId, getTelegramUsername, getTelegramWebApp, sendTelegramData } from "./lib/telegram";
-import { openManagerChat } from "./lib/managerLink";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import type { Screen } from "./types";
 
@@ -29,7 +28,7 @@ function readLocalOrders(): Order[] {
   try {
     const raw = window.localStorage.getItem(LOCAL_ORDERS_KEY);
     const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed.filter((order) => isOrderOwner(order, parsed.map((item: Order) => String(item.clientOrderId || "")).filter(Boolean))) : [];
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
   }
@@ -37,18 +36,10 @@ function readLocalOrders(): Order[] {
 
 function writeLocalOrders(orders: Order[]) {
   try {
-    window.localStorage.setItem(LOCAL_ORDERS_KEY, JSON.stringify(orders.filter((order) => isOrderOwner(order, orders.map((item) => String(item.clientOrderId || "")).filter(Boolean)))));
+    window.localStorage.setItem(LOCAL_ORDERS_KEY, JSON.stringify(orders));
   } catch {
     // ignore private mode/storage errors
   }
-}
-
-function orderIdentity(order: Order) {
-  return String(order.clientOrderId || order.id || order.orderNumber);
-}
-
-function localClientOrderIds(orders: Order[]) {
-  return orders.map((order) => String(order.clientOrderId || "")).filter(Boolean);
 }
 
 function mergeOrders(primary: Order[], secondary: Order[]) {
@@ -114,9 +105,8 @@ export default function App() {
 
     const loadOrders = async () => {
       try {
-        const knownLocalOrders = readLocalOrders();
-        const nextOrders = await fetchOrders(localClientOrderIds(knownLocalOrders));
-        if (isMounted) setOrders((current) => mergeOrders(nextOrders, current.filter((order) => isOrderOwner(order, localClientOrderIds(current)))));
+        const nextOrders = await fetchOrders();
+        if (isMounted) setOrders((current) => mergeOrders(nextOrders, current));
       } catch (error) {
         console.error("Orders history fetch failed", error);
       }
@@ -196,6 +186,8 @@ export default function App() {
         },
       };
 
+      saveMyOrderId(clientOrderId);
+
       const localOrder: Order = {
         id: clientOrderId,
         orderNumber: Date.now() % 100000,
@@ -260,7 +252,7 @@ export default function App() {
           {screen === "delivery" && <DeliveryScreen onBack={() => setScreen("profile")} />}
           {screen === "payment" && <PaymentScreen onBack={() => setScreen("profile")} />}
           {screen === "about" && <AboutScreen onBack={() => setScreen("profile")} />}
-          {screen === "orders" && <OrdersScreen orders={orders} onBack={() => setScreen("profile")} onCatalog={() => setScreen("catalog")} onManager={openManagerChat} />}
+          {screen === "orders" && <OrdersScreen orders={orders} onBack={() => setScreen("profile")} onCatalog={() => setScreen("catalog")} onManager={() => setScreen("about")} />}
           {screen === "product" && selectedProduct && <ProductDetailScreen product={selectedProduct} isFavorite={isFavorite(selectedProduct.id, favorites)} onBack={() => setScreen("catalog")} onCart={(size) => addToCart(selectedProduct, size)} onToggleFavorite={handleToggleFavorite} />}
           {screen === "cart" && (
             <CartScreen
