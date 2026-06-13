@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AppHeader } from "./components/AppHeader";
 import { BottomNav } from "./components/BottomNav";
 import { SearchOverlay } from "./components/SearchOverlay";
@@ -14,12 +14,51 @@ import { PaymentScreen } from "./screens/PaymentScreen";
 import { ProductDetailScreen } from "./screens/ProductDetailScreen";
 import { CartScreen } from "./screens/CartScreen";
 import { CheckoutSuccessScreen } from "./screens/CheckoutSuccessScreen";
-import { fallbackProducts, type Product } from "./data/products";
-import { DELIVERY_NOTE, WAITING_TIME, fetchProducts, type CartItem, type Order } from "./lib/api";
+import type { Product } from "./data/products";
+import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, WAITING_TIME, type CartItem, type Order } from "./lib/api";
 import { getFavorites, isFavorite, toggleFavorite } from "./lib/favorites";
-import { getTelegramUsername, getTelegramWebApp, sendTelegramData } from "./lib/telegram";
+import { getTelegramUserId, getTelegramUsername, getTelegramWebApp, sendTelegramData } from "./lib/telegram";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import type { Screen } from "./types";
+
+
+const LOCAL_ORDERS_KEY = "snkr_land_orders";
+
+function readLocalOrders(): Order[] {
+  try {
+    const raw = window.localStorage.getItem(LOCAL_ORDERS_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeLocalOrders(orders: Order[]) {
+  try {
+    window.localStorage.setItem(LOCAL_ORDERS_KEY, JSON.stringify(orders));
+  } catch {
+    // ignore private mode/storage errors
+  }
+}
+
+function orderIdentity(order: Order) {
+  return String(order.clientOrderId || order.id || order.orderNumber);
+}
+
+function localClientOrderIds(orders: Order[]) {
+  return orders.map((order) => String(order.clientOrderId || "")).filter(Boolean);
+}
+
+function mergeOrders(primary: Order[], secondary: Order[]) {
+  const seen = new Set<string>();
+  return [...primary, ...secondary].filter((order) => {
+    const key = String(order.clientOrderId || order.id || order.orderNumber);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
 
 const screens: Record<Screen, string> = {
   home: "Главная",
@@ -40,10 +79,11 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [products, setProducts] = useState<Product[]>(fallbackProducts);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(fallbackProducts[0] ?? null);
+  const [catalogSearchQuery, setCatalogSearchQuery] = useState("");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<Order[]>(() => readLocalOrders());
   const [favorites, setFavorites] = useState<Product[]>(() => getFavorites());
   const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
 
@@ -55,11 +95,39 @@ export default function App() {
     getTelegramWebApp()?.ready?.();
     getTelegramWebApp()?.expand?.();
 
-    fetchProducts().then((nextProducts) => {
-      if (!nextProducts.length) return;
-      setProducts(nextProducts);
-      setSelectedProduct((current) => nextProducts.find((product) => product.id === current?.id) ?? nextProducts[0]);
-    });
+    let isMounted = true;
+
+    const loadProducts = async () => {
+      try {
+        const nextProducts = await fetchProducts();
+        if (!isMounted) return;
+        setProducts(nextProducts);
+        setSelectedProduct((current) => nextProducts.find((product) => product.id === current?.id) ?? nextProducts[0] ?? null);
+      } catch (error) {
+        console.error("Products fetch failed", error);
+      }
+    };
+
+    loadProducts();
+    const productsTimer = window.setInterval(loadProducts, 15000);
+
+    const loadOrders = async () => {
+      try {
+        const knownLocalOrders = readLocalOrders();
+        const nextOrders = await fetchOrders(localClientOrderIds(knownLocalOrders));
+        if (isMounted) setOrders((current) => mergeOrders(nextOrders, current));
+      } catch (error) {
+        console.error("Orders history fetch failed", error);
+      }
+    };
+    loadOrders();
+
+    const refreshTimer = window.setInterval(loadOrders, 15000);
+    return () => {
+      isMounted = false;
+      window.clearInterval(refreshTimer);
+      window.clearInterval(productsTimer);
+    };
   }, []);
 
   const navigate = (nextScreen: Screen) => {
@@ -71,7 +139,11 @@ export default function App() {
     setScreen("cart");
   };
 
-  const favoriteIds = new Set(favorites.map((product) => String(product.id)));
+  useEffect(() => {
+    writeLocalOrders(orders);
+  }, [orders]);
+
+  const favoriteIds = useMemo(() => new Set(favorites.map((product) => String(product.id))), [favorites]);
 
   const handleToggleFavorite = (product: Product) => {
     setFavorites(toggleFavorite(product));
@@ -110,6 +182,7 @@ export default function App() {
         },
         comment: payload.comment,
         username: getTelegramUsername(),
+        telegram_id: getTelegramUserId(),
         product: {
           id: cartItem.product.id,
           brand: cartItem.product.brand,
@@ -117,27 +190,22 @@ export default function App() {
           color: cartItem.product.color,
           price: cartItem.product.price,
           image: cartItem.product.images[0] ?? "",
+          images: cartItem.product.images,
+          sizes: cartItem.product.sizes,
         },
       };
-
-      const sendResult = sendTelegramData(orderPayload);
-      if (!sendResult.ok) {
-        if (sendResult.reason === "no_webapp" || sendResult.reason === "no_sendData") {
-          getTelegramWebApp()?.showAlert?.("Откройте магазин внутри Telegram, чтобы отправить заявку.");
-          throw new Error("telegram_webapp_unavailable");
-        }
-        console.error("Telegram.WebApp.sendData failed", sendResult.error);
-        throw new Error("telegram_send_failed");
-      }
 
       const localOrder: Order = {
         id: clientOrderId,
         orderNumber: Date.now() % 100000,
+        clientOrderId,
+        telegramId: String(getTelegramUserId() ?? ""),
         productId: cartItem.product.id,
         productSnapshot: cartItem.product,
         size: cartItem.size,
         quantity: cartItem.quantity,
         totalPrice: cartItem.product.price * cartItem.quantity,
+        username: getTelegramUsername(),
         phone: payload.phone,
         deliveryType: "delivery",
         address: payload.address,
@@ -145,7 +213,33 @@ export default function App() {
         status: "new",
         createdAt: new Date().toISOString(),
       };
-      setOrders((current) => [localOrder, ...current]);
+
+      setOrders((current) => mergeOrders([localOrder], current));
+      writeLocalOrders(mergeOrders([localOrder], readLocalOrders()));
+
+      let completed = false;
+      try {
+        const backendOrder = await createOrder(orderPayload);
+        if (backendOrder) {
+          setOrders((current) => mergeOrders([backendOrder], current));
+          completed = true;
+        }
+      } catch (error) {
+        console.error("Backend order create failed, trying Telegram sendData", error);
+      }
+
+      if (!completed) {
+        const sendResult = sendTelegramData(orderPayload);
+        if (!sendResult.ok) {
+          if (sendResult.reason === "no_webapp" || sendResult.reason === "no_sendData") {
+            getTelegramWebApp()?.showAlert?.("Откройте магазин внутри Telegram, чтобы отправить заявку.");
+            throw new Error("telegram_webapp_unavailable");
+          }
+          console.error("Telegram.WebApp.sendData failed", sendResult.error);
+          throw new Error("telegram_send_failed");
+        }
+      }
+
       setCartItem(null);
       setScreen("checkoutSuccess");
     } finally {
@@ -159,7 +253,7 @@ export default function App() {
         <AppHeader onMenuClick={() => setMenuOpen(true)} onSearchClick={() => setSearchOpen(true)} />
         <main className="screen-slot" key={screen}>
           {screen === "home" && <HomeScreen onCatalogClick={() => setScreen("catalog")} />}
-          {screen === "catalog" && <CatalogScreen products={products} favoriteIds={favoriteIds} onOpenProduct={(product) => { setSelectedProduct(product); setScreen("product"); }} onToggleFavorite={handleToggleFavorite} />}
+          {screen === "catalog" && <CatalogScreen products={products} favoriteIds={favoriteIds} searchQuery={catalogSearchQuery} onClearSearch={() => setCatalogSearchQuery("")} onOpenProduct={(product) => { setSelectedProduct(product); setScreen("product"); }} onToggleFavorite={handleToggleFavorite} />}
           {screen === "favorites" && <FavoritesScreen favorites={favorites} onCatalog={() => setScreen("catalog")} onOpenProduct={(product) => { setSelectedProduct(product); setScreen("product"); }} onToggleFavorite={handleToggleFavorite} />}
           {screen === "profile" && <ProfileScreen latestOrder={orders[0]} onNavigate={setScreen} />}
           {screen === "delivery" && <DeliveryScreen onBack={() => setScreen("profile")} />}
@@ -190,7 +284,7 @@ export default function App() {
         </main>
         <BottomNav activeScreen={screen} onNavigate={navigate} />
         <SideMenu isOpen={menuOpen} activeScreen={screen} onClose={() => setMenuOpen(false)} onNavigate={navigate} />
-        <SearchOverlay isOpen={searchOpen} products={products} onClose={() => setSearchOpen(false)} onCatalog={() => { setSearchOpen(false); setScreen("catalog"); }} onOpenProduct={(product) => { setSelectedProduct(product); setSearchOpen(false); setScreen("product"); }} />
+        <SearchOverlay isOpen={searchOpen} products={products} onClose={() => setSearchOpen(false)} onCatalog={() => { setCatalogSearchQuery(""); setSearchOpen(false); setScreen("catalog"); }} onCatalogSearch={(query) => { setCatalogSearchQuery(query); setSearchOpen(false); setScreen("catalog"); }} onOpenProduct={(product) => { setSelectedProduct(product); setSearchOpen(false); setScreen("product"); }} />
       </div>
     </div>
   );
