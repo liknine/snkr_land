@@ -18,12 +18,12 @@ const mainItems = [
   { id: "profile", label: "Профиль", Icon: Box },
 ] satisfies Array<{ id: Screen; label: string; Icon: typeof Home }>;
 
-const serviceItems: Array<{ label: string; Icon: typeof MapPin; screen?: Screen; action?: "manager" }> = [
+const serviceItems: Array<{ label: string; Icon: typeof MapPin; screen?: Screen }> = [
   { label: "Притыцкого 29, Тивали", Icon: MapPin, screen: "about" },
   { label: "Доставка по РБ", Icon: Truck, screen: "delivery" },
   { label: "Оплата", Icon: CreditCard, screen: "payment" },
   { label: "О магазине", Icon: Info, screen: "about" },
-  { label: "Связаться с менеджером", Icon: MessageCircle, action: "manager" },
+  { label: "Связаться с менеджером", Icon: MessageCircle, screen: "about" },
 ];
 
 export function SideMenu({ isOpen, activeScreen, onClose, onNavigate }: SideMenuProps) {
@@ -63,14 +63,17 @@ export function SideMenu({ isOpen, activeScreen, onClose, onNavigate }: SideMenu
         </div>
 
         <div className="side-menu-card">
-          {serviceItems.map(({ label, Icon, screen, action }) => (
+          {serviceItems.map(({ label, Icon, screen }) => (
             <button
               className="side-menu-info side-menu-info-button"
               type="button"
               key={label}
               onClick={() => {
-                if (action === "manager") openManagerChat();
-                else if (screen) onNavigate(screen);
+                if (label === "Связаться с менеджером") {
+                  openManagerChat();
+                } else if (screen) {
+                  onNavigate(screen);
+                }
                 onClose();
               }}
             >
