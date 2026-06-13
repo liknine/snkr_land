@@ -30,7 +30,7 @@
     "deliveryType": "delivery",
     "address": "ооооо",
     "comment": "",
-    "status": "completed",
+    "status": "in_transit",
     "createdAt": "2026-06-13T17:00:11",
     "updatedAt": ""
   },
