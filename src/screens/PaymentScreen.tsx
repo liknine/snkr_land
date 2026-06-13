@@ -1,4 +1,5 @@
 import { ArrowLeft, BadgeCheck, CreditCard, MapPin, MessageCircle, PackageCheck, ReceiptText } from "lucide-react";
+import { openManagerChat } from "../lib/managerLink";
 
 type PaymentScreenProps = {
   onBack: () => void;
@@ -52,7 +53,7 @@ export function PaymentScreen({ onBack }: PaymentScreenProps) {
         </div>
       </div>
 
-      <button className="detail-action" type="button">
+      <button className="detail-action" type="button" onClick={openManagerChat}>
         <MessageCircle size={22} strokeWidth={1.55} aria-hidden="true" />
         <span>Связаться с менеджером</span>
       </button>

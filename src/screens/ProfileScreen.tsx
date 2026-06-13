@@ -4,6 +4,7 @@ import profileTitle from "../assets/titles/profile-title-v5.png";
 import type { Order } from "../lib/api";
 import { productImage } from "../lib/productUtils";
 import type { Screen } from "../types";
+import { openManagerChat } from "../lib/managerLink";
 
 type ProfileScreenProps = {
   latestOrder?: Order;
@@ -61,7 +62,7 @@ export function ProfileScreen({ latestOrder, onNavigate }: ProfileScreenProps) {
         )}
       </button>
 
-      <button className="manager-row" type="button" onClick={() => onNavigate("about")}>
+      <button className="manager-row" type="button" onClick={openManagerChat}>
         <span>Связаться с менеджером</span>
         <ArrowRight size={27} strokeWidth={1.45} aria-hidden="true" />
       </button>

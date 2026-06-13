@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { Order, OrderStatus } from "../lib/api";
 import { statusLabels } from "../lib/api";
 import { formatPrice, productImage } from "../lib/productUtils";
+import { openManagerChat } from "../lib/managerLink";
 
 type OrdersScreenProps = {
   orders: Order[];
@@ -21,6 +22,7 @@ function statusTone(status: OrderStatus): "orange" | "green" {
 
 export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScreenProps) {
   const [activeOrder, setActiveOrder] = useState<Order | null>(null);
+  const contactManager = onManager || openManagerChat;
 
   return (
     <section className="screen orders-screen" aria-labelledby="orders-page-title">
@@ -67,7 +69,7 @@ export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScr
         </div>
       )}
 
-      <button className="detail-action orders-contact" type="button" onClick={onManager}>
+      <button className="detail-action orders-contact" type="button" onClick={contactManager}>
         <MessageCircle size={22} strokeWidth={1.55} aria-hidden="true" />
         <span>Связаться с менеджером</span>
       </button>
@@ -97,7 +99,14 @@ export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScr
               <p><Truck size={21} strokeWidth={1.5} /><span>Статус: <b>{statusLabels[activeOrder.status]}</b></span></p>
               <p><CalendarDays size={21} strokeWidth={1.5} /><span>Дата заказа: {formatOrderDate(activeOrder.createdAt)}</span></p>
               <p><Clock3 size={21} strokeWidth={1.5} /><span>Получение: {activeOrder.deliveryType === "delivery" ? "доставка" : "самовывоз"}</span></p>
-              <p><MapPin size={21} strokeWidth={1.5} /><span>Адрес самовывоза: Притыцкого 29, ТЦ «Тивали», 1 этаж, магазин №101.</span></p>
+              <p>
+                <MapPin size={21} strokeWidth={1.5} />
+                <span>
+                  {activeOrder.deliveryType === "delivery"
+                    ? `Адрес доставки: ${activeOrder.address || "уточняется менеджером"}`
+                    : "Адрес самовывоза: Притыцкого 29, ТЦ «Тивали», 1 этаж, магазин №101."}
+                </span>
+              </p>
             </div>
 
             <div className="order-progress">
@@ -120,7 +129,7 @@ export function OrdersScreen({ orders, onBack, onCatalog, onManager }: OrdersScr
               </div>
             </div>
 
-            <button className="order-primary-action" type="button" onClick={onManager}>
+            <button className="order-primary-action" type="button" onClick={contactManager}>
               <MessageCircle size={22} strokeWidth={1.55} />
               <span>Связаться с менеджером</span>
             </button>

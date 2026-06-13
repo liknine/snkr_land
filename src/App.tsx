@@ -18,6 +18,7 @@ import type { Product } from "./data/products";
 import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, WAITING_TIME, type CartItem, type Order } from "./lib/api";
 import { getFavorites, isFavorite, toggleFavorite } from "./lib/favorites";
 import { getTelegramUserId, getTelegramUsername, getTelegramWebApp, sendTelegramData } from "./lib/telegram";
+import { openManagerChat } from "./lib/managerLink";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import type { Screen } from "./types";
 
@@ -259,7 +260,7 @@ export default function App() {
           {screen === "delivery" && <DeliveryScreen onBack={() => setScreen("profile")} />}
           {screen === "payment" && <PaymentScreen onBack={() => setScreen("profile")} />}
           {screen === "about" && <AboutScreen onBack={() => setScreen("profile")} />}
-          {screen === "orders" && <OrdersScreen orders={orders} onBack={() => setScreen("profile")} onCatalog={() => setScreen("catalog")} onManager={() => setScreen("about")} />}
+          {screen === "orders" && <OrdersScreen orders={orders} onBack={() => setScreen("profile")} onCatalog={() => setScreen("catalog")} onManager={openManagerChat} />}
           {screen === "product" && selectedProduct && <ProductDetailScreen product={selectedProduct} isFavorite={isFavorite(selectedProduct.id, favorites)} onBack={() => setScreen("catalog")} onCart={(size) => addToCart(selectedProduct, size)} onToggleFavorite={handleToggleFavorite} />}
           {screen === "cart" && (
             <CartScreen

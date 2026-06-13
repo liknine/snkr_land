@@ -1,5 +1,6 @@
 import { ArrowLeft, Clock3, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import logo from "../assets/images/logo-v5.png";
+import { openManagerChat } from "../lib/managerLink";
 
 type AboutScreenProps = {
   onBack: () => void;
@@ -45,7 +46,7 @@ export function AboutScreen({ onBack }: AboutScreenProps) {
         </div>
       </div>
 
-      <button className="detail-action" type="button">
+      <button className="detail-action" type="button" onClick={openManagerChat}>
         <MessageCircle size={22} strokeWidth={1.55} aria-hidden="true" />
         <span>Связаться с менеджером</span>
       </button>

@@ -2,6 +2,7 @@ import { ArrowRight, Box, CreditCard, Heart, Home, Info, MapPin, MessageCircle, 
 import logo from "../assets/images/logo-v5.png";
 import brandTitle from "../assets/titles/brand-title-v5.png";
 import type { Screen } from "../types";
+import { openManagerChat } from "../lib/managerLink";
 
 type SideMenuProps = {
   isOpen: boolean;
@@ -17,12 +18,12 @@ const mainItems = [
   { id: "profile", label: "Профиль", Icon: Box },
 ] satisfies Array<{ id: Screen; label: string; Icon: typeof Home }>;
 
-const serviceItems: Array<{ label: string; Icon: typeof MapPin; screen?: Screen }> = [
+const serviceItems: Array<{ label: string; Icon: typeof MapPin; screen?: Screen; action?: "manager" }> = [
   { label: "Притыцкого 29, Тивали", Icon: MapPin, screen: "about" },
   { label: "Доставка по РБ", Icon: Truck, screen: "delivery" },
   { label: "Оплата", Icon: CreditCard, screen: "payment" },
   { label: "О магазине", Icon: Info, screen: "about" },
-  { label: "Связаться с менеджером", Icon: MessageCircle, screen: "about" },
+  { label: "Связаться с менеджером", Icon: MessageCircle, action: "manager" },
 ];
 
 export function SideMenu({ isOpen, activeScreen, onClose, onNavigate }: SideMenuProps) {
@@ -62,13 +63,14 @@ export function SideMenu({ isOpen, activeScreen, onClose, onNavigate }: SideMenu
         </div>
 
         <div className="side-menu-card">
-          {serviceItems.map(({ label, Icon, screen }) => (
+          {serviceItems.map(({ label, Icon, screen, action }) => (
             <button
               className="side-menu-info side-menu-info-button"
               type="button"
               key={label}
               onClick={() => {
-                if (screen) onNavigate(screen);
+                if (action === "manager") openManagerChat();
+                else if (screen) onNavigate(screen);
                 onClose();
               }}
             >
