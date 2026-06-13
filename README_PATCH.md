@@ -1,47 +1,32 @@
-# Патч связи с менеджером + команды бота
+# Private orders patch
 
-Заменить только эти файлы/папки. Данные товаров и заказов НЕ трогать.
+Replace only these files/folders:
 
-## Backend
-Заменить:
-- `bot/main.py`
+- bot/github_storage.py
+- src/App.tsx
+- src/lib/api.ts
+- docs/index.html
+- docs/assets/
 
-Что исправлено:
-- `/admin` возвращен и остается в подсказках команд.
-- В подсказках остаются только `/start`, `/orders`, `/admin`.
-- `/app`, `/myid`, `/sync` очищаются из подсказок команд.
-- `/start` отправляет аккуратный текст, кнопку магазина и inline-блок связи.
-- Кнопки связи в боте:
-  - `📣 Наш канал` -> `https://t.me/Sneakers_land_BY`
-  - `💬 Обратиться к менеджеру` -> `https://t.me/Il_7in?text=есть вопрос по заказу`
+Do not overwrite product/order data files:
 
-После замены перезапустить:
+- data/products.json
+- data/orders.json
+- docs/data/products.json
+- docs/data/orders.json
+- docs/images/products/
 
-```bash
-cd /Users/liknine/Documents/snkr_land
-./run_bot.command
-```
+What this fixes:
 
-## Frontend
-Заменить:
-- `src/App.tsx`
-- `src/lib/api.ts`
-- `src/lib/managerLink.ts`
-- `src/screens/AboutScreen.tsx`
-- `src/screens/OrdersScreen.tsx`
-- `src/screens/PaymentScreen.tsx`
-- `src/screens/ProfileScreen.tsx`
-- `src/components/SideMenu.tsx`
+- “Мои заказы” no longer shows all orders to every user.
+- Frontend first tries to read per-user orders: data/orders/users/<telegramId>.json
+- Fallback data/orders.json is strictly filtered by telegramId / username / local clientOrderId.
+- Old poisoned localStorage key is ignored; new key is snkr_land_my_orders_v2.
+- Backend GitHub sync now writes per-user order snapshots when publishing orders.
 
-Для GitHub Pages заменить:
-- `docs/index.html`
-- новые `docs/assets/index-*.js`
-- новые `docs/assets/index-*.css`
+After replacing files:
 
-НЕ заменять:
-- `data/products.json`
-- `data/orders.json`
-- `docs/data/products.json`
-- `docs/data/orders.json`
-
-Если GitHub Pages настроен на root, возьми содержимое `docs/` и положи в корень репозитория, но не перетирай `data/products.json` и `data/orders.json`.
+1. Restart bot.
+2. Re-upload docs/index.html and docs/assets to GitHub Pages.
+3. Do not overwrite docs/data/products.json or docs/data/orders.json.
+4. Open Mini App with ?v=private-orders-final to clear cache.

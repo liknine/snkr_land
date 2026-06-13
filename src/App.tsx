@@ -15,7 +15,7 @@ import { ProductDetailScreen } from "./screens/ProductDetailScreen";
 import { CartScreen } from "./screens/CartScreen";
 import { CheckoutSuccessScreen } from "./screens/CheckoutSuccessScreen";
 import type { Product } from "./data/products";
-import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, WAITING_TIME, type CartItem, type Order } from "./lib/api";
+import { createOrder, DELIVERY_NOTE, fetchOrders, fetchProducts, hasBackendApi, isOrderOwner, WAITING_TIME, type CartItem, type Order } from "./lib/api";
 import { getFavorites, isFavorite, toggleFavorite } from "./lib/favorites";
 import { getTelegramUserId, getTelegramUsername, getTelegramWebApp, sendTelegramData } from "./lib/telegram";
 import { openManagerChat } from "./lib/managerLink";
@@ -23,13 +23,13 @@ import { ProfileScreen } from "./screens/ProfileScreen";
 import type { Screen } from "./types";
 
 
-const LOCAL_ORDERS_KEY = "snkr_land_orders";
+const LOCAL_ORDERS_KEY = "snkr_land_my_orders_v2";
 
 function readLocalOrders(): Order[] {
   try {
     const raw = window.localStorage.getItem(LOCAL_ORDERS_KEY);
     const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed : [];
+    return Array.isArray(parsed) ? parsed.filter((order) => isOrderOwner(order, parsed.map((item: Order) => String(item.clientOrderId || "")).filter(Boolean))) : [];
   } catch {
     return [];
   }
@@ -37,7 +37,7 @@ function readLocalOrders(): Order[] {
 
 function writeLocalOrders(orders: Order[]) {
   try {
-    window.localStorage.setItem(LOCAL_ORDERS_KEY, JSON.stringify(orders));
+    window.localStorage.setItem(LOCAL_ORDERS_KEY, JSON.stringify(orders.filter((order) => isOrderOwner(order, orders.map((item) => String(item.clientOrderId || "")).filter(Boolean)))));
   } catch {
     // ignore private mode/storage errors
   }
@@ -116,7 +116,7 @@ export default function App() {
       try {
         const knownLocalOrders = readLocalOrders();
         const nextOrders = await fetchOrders(localClientOrderIds(knownLocalOrders));
-        if (isMounted) setOrders((current) => mergeOrders(nextOrders, current));
+        if (isMounted) setOrders((current) => mergeOrders(nextOrders, current.filter((order) => isOrderOwner(order, localClientOrderIds(current)))));
       } catch (error) {
         console.error("Orders history fetch failed", error);
       }
