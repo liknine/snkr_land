@@ -1,5 +1,39 @@
 [
   {
+    "id": "6",
+    "orderNumber": 6,
+    "clientOrderId": "snkr-1781325896551",
+    "telegramId": "6679851290",
+    "username": "finance_log",
+    "productId": "1781295156753",
+    "productSnapshot": {
+      "id": "1781295156753",
+      "brand": "ппп",
+      "name": "гггг",
+      "color": "ррр",
+      "price": 66,
+      "sizes": [
+        "43"
+      ],
+      "images": [
+        "images/products/ppp-gggg-1-d80b12a2bd.jpg"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-13T07:44:56"
+    },
+    "size": "43",
+    "quantity": 1,
+    "totalPrice": 66,
+    "phone": "+375339028447",
+    "deliveryType": "delivery",
+    "address": "Мозырь, Притыцого 44,14",
+    "comment": "",
+    "status": "new",
+    "createdAt": "2026-06-13T07:44:56",
+    "updatedAt": ""
+  },
+  {
     "id": "5",
     "orderNumber": 5,
     "clientOrderId": "snkr-1781295308886",
