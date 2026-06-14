@@ -1,5 +1,24 @@
 [
   {
+    "id": "1781465267375",
+    "brand": "maison margiela",
+    "name": "Evolution High",
+    "color": "brown",
+    "price": 700,
+    "sizes": [
+      "43",
+      "44",
+      "45"
+    ],
+    "description": "new shoesss",
+    "images": [
+      "images/products/maison-margiela-evolution-high-1-e97a1c25ca.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-14T22:28:30.829082"
+  },
+  {
     "id": "1781359871575",
     "brand": "nike",
     "name": "nike air force 1",
