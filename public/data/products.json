@@ -1,5 +1,25 @@
 [
   {
+    "id": "1781516075275",
+    "brand": "Golden Goose",
+    "name": "Golden Goose Star",
+    "color": "Black",
+    "price": 550,
+    "sizes": [
+      "42",
+      "43",
+      "45"
+    ],
+    "description": "hhhhh",
+    "images": [
+      "images/products/golden-goose-golden-goose-star-1-7ac9bed79f.jpg",
+      "images/products/golden-goose-golden-goose-star-2-81b464691b.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-15T12:36:30.917377"
+  },
+  {
     "id": "1781465484116",
     "brand": "nike",
     "name": "777",
