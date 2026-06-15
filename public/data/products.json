@@ -1,5 +1,33 @@
 [
   {
+    "id": "1781517325265",
+    "brand": "тест",
+    "name": "1",
+    "color": "black",
+    "price": 100,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "description": "hhhhhh",
+    "images": [
+      "images/products/test-1-1-cef7312f35.jpg",
+      "images/products/test-1-2-82778546fb.jpg",
+      "images/products/test-1-3-05d8dc5d8c.jpg",
+      "images/products/test-1-4-4e70b2f844.jpg",
+      "images/products/test-1-5-4005b13ca1.jpg",
+      "images/products/test-1-6-120637726c.jpg",
+      "images/products/test-1-7-fa14451290.jpg",
+      "images/products/test-1-8-7d1ca5c057.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-15T12:57:09.051285"
+  },
+  {
     "id": "1781516075275",
     "brand": "Golden Goose",
     "name": "Golden Goose Star",
