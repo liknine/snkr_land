@@ -13,11 +13,7 @@
       "45"
     ],
     "description": "Для уточнения размера модели пишите в директ\nГарантия 30 дней\nМы находимся по адресу:\nГ.Минск, ул. Притыцкого 29 (ТЦ «ТИВАЛИ») 1 этаж\n101 магазин",
-    "images": [
-      "images/products/nike-nike-1-c0084f8216.jpg",
-      "images/products/nike-nike-2-20960cc89b.jpg",
-      "images/products/nike-nike-3-e6692b91f7.jpg"
-    ],
+    "images": [],
     "isFavorite": false,
     "isActive": true,
     "createdAt": "2026-06-17T23:35:51.939231"
