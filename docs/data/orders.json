@@ -32,7 +32,7 @@
     "deliveryType": "delivery",
     "address": "ппп",
     "comment": "",
-    "status": "accepted",
+    "status": "in_transit",
     "createdAt": "2026-06-17T15:29:50",
     "updatedAt": ""
   },
