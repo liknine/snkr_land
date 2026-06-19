@@ -35,7 +35,7 @@
     "deliveryType": "delivery",
     "address": "Пп",
     "comment": "",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-19T07:50:14",
     "updatedAt": ""
   },
