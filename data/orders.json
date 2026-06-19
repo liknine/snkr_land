@@ -1,5 +1,45 @@
 [
   {
+    "id": "20",
+    "orderNumber": 20,
+    "clientOrderId": "snkr-1781844559918",
+    "telegramId": "1639462053",
+    "username": "liknine",
+    "productId": "1781728244882",
+    "productSnapshot": {
+      "id": "1781728244882",
+      "brand": "",
+      "name": "Nike",
+      "color": "Черный",
+      "price": 180,
+      "sizes": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "images": [
+        "images/products/nike-nike-1-20960cc89b.jpg",
+        "images/products/nike-nike-2-e6692b91f7.jpg",
+        "images/products/nike-nike-3-c0084f8216.jpg"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-19T07:49:20"
+    },
+    "size": "42",
+    "quantity": 1,
+    "totalPrice": 180,
+    "phone": "66",
+    "deliveryType": "delivery",
+    "address": "Аа",
+    "comment": "",
+    "status": "new",
+    "createdAt": "2026-06-19T07:49:20",
+    "updatedAt": ""
+  },
+  {
     "id": "19",
     "orderNumber": 19,
     "clientOrderId": "snkr-1781699444029",
@@ -8,7 +48,7 @@
     "productId": "1781359871575",
     "productSnapshot": {
       "id": "1781359871575",
-      "brand": "nike",
+      "brand": "",
       "name": "nike air force 1",
       "color": "black",
       "price": 300,
@@ -45,7 +85,7 @@
     "productId": "1781359871575",
     "productSnapshot": {
       "id": "1781359871575",
-      "brand": "nike",
+      "brand": "",
       "name": "nike air force 1",
       "color": "black",
       "price": 300,
@@ -82,7 +122,7 @@
     "productId": "1781359871575",
     "productSnapshot": {
       "id": "1781359871575",
-      "brand": "nike",
+      "brand": "",
       "name": "nike air force 1",
       "color": "black",
       "price": 300,
@@ -119,7 +159,7 @@
     "productId": "1781517325265",
     "productSnapshot": {
       "id": "1781517325265",
-      "brand": "тест",
+      "brand": "",
       "name": "1",
       "color": "black",
       "price": 100,
@@ -164,7 +204,7 @@
     "productId": "1781359871575",
     "productSnapshot": {
       "id": "1781359871575",
-      "brand": "nike",
+      "brand": "",
       "name": "nike air force 1",
       "color": "black",
       "price": 300,
@@ -201,7 +241,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -235,7 +275,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -269,7 +309,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -303,7 +343,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -337,7 +377,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -371,7 +411,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -405,7 +445,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -439,7 +479,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -473,7 +513,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -507,7 +547,7 @@
     "productId": "1781295156753",
     "productSnapshot": {
       "id": "1781295156753",
-      "brand": "ппп",
+      "brand": "",
       "name": "гггг",
       "color": "ррр",
       "price": 66,
@@ -541,7 +581,7 @@
     "productId": "1781293518521",
     "productSnapshot": {
       "id": "1781293518521",
-      "brand": "sdf",
+      "brand": "",
       "name": "sdf",
       "color": "sdf",
       "price": 0,
@@ -575,7 +615,7 @@
     "productId": "1",
     "productSnapshot": {
       "id": "1",
-      "brand": "GOLDEN GOOSE",
+      "brand": "",
       "name": "Super-Star Black",
       "color": "Black",
       "price": 1450,
@@ -607,7 +647,7 @@
     "productId": "1",
     "productSnapshot": {
       "id": "1",
-      "brand": "GOLDEN GOOSE",
+      "brand": "",
       "name": "Super-Star Black",
       "color": "Black",
       "price": 1450,
@@ -639,7 +679,7 @@
     "productId": "1",
     "productSnapshot": {
       "id": "1",
-      "brand": "GOLDEN GOOSE",
+      "brand": "",
       "name": "Super-Star Black",
       "color": "Black",
       "price": 1450,
