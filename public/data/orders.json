@@ -35,7 +35,7 @@
     "deliveryType": "delivery",
     "address": "улица",
     "comment": "",
-    "status": "accepted",
+    "status": "in_transit",
     "createdAt": "2026-06-21T12:21:25",
     "updatedAt": ""
   },
