@@ -1,5 +1,42 @@
 [
   {
+    "id": "33",
+    "orderNumber": 33,
+    "clientOrderId": "snkr-1782387175613",
+    "telegramId": "1639462053",
+    "username": "liknine",
+    "productId": "1781728244882",
+    "productSnapshot": {
+      "id": "1781728244882",
+      "brand": "",
+      "name": "Nike",
+      "color": "Черный",
+      "price": 180,
+      "sizes": [
+        "41",
+        "42"
+      ],
+      "images": [
+        "images/products/nike-nike-1-20960cc89b.jpg",
+        "images/products/nike-nike-2-e6692b91f7.jpg",
+        "images/products/nike-nike-3-c0084f8216.jpg"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-06-25T14:32:56"
+    },
+    "size": "41",
+    "quantity": 1,
+    "totalPrice": 180,
+    "phone": "77",
+    "deliveryType": "delivery",
+    "address": "Рр",
+    "comment": "",
+    "status": "new",
+    "createdAt": "2026-06-25T14:32:56",
+    "updatedAt": ""
+  },
+  {
     "id": "32",
     "orderNumber": 32,
     "clientOrderId": "snkr-1782387065081",
