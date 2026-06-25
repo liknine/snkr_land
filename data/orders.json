@@ -34,7 +34,7 @@
     "deliveryType": "delivery",
     "address": "тестовый адрес",
     "comment": "",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-25T11:39:13",
     "updatedAt": ""
   },
