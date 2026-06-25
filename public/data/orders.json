@@ -34,7 +34,7 @@
     "deliveryType": "delivery",
     "address": "улица тест",
     "comment": "одну пару",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-25T11:44:26",
     "updatedAt": ""
   },
