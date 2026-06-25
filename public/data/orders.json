@@ -34,7 +34,7 @@
     "deliveryType": "delivery",
     "address": "text",
     "comment": "заказал 2 пары",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-25T12:36:37",
     "updatedAt": ""
   },
