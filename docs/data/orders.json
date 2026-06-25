@@ -32,7 +32,7 @@
     "deliveryType": "delivery",
     "address": "Рр",
     "comment": "",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-25T14:32:56",
     "updatedAt": ""
   },
