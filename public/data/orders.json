@@ -37,7 +37,7 @@
     "deliveryType": "delivery",
     "address": "Вовоара",
     "comment": "Чтатст",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-26T23:54:36",
     "updatedAt": ""
   },
