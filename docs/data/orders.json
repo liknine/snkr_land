@@ -37,7 +37,7 @@
     "deliveryType": "delivery",
     "address": "Ул. Ленина 52/3",
     "comment": "",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-06-27T18:44:51",
     "updatedAt": ""
   },
