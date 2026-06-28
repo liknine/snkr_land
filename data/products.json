@@ -1,94 +1,33 @@
 [
   {
-    "id": "1782376313923",
+    "id": "1782664743109",
     "brand": "",
-    "name": "Maison Margiela Evolution Low",
-    "color": "White",
-    "price": 1000,
+    "name": "maison margiela evolution",
+    "color": "white",
+    "price": 500,
     "sizes": [
-      "41",
       "42",
       "43",
       "44",
       "45"
     ],
     "sizeStock": {
-      "41": 0,
-      "42": 2,
-      "43": 3,
+      "42": 3,
+      "43": 4,
       "44": 1,
-      "45": 0
+      "45": 2
     },
-    "description": "тестовый",
+    "description": "описание товара",
     "images": [
-      "images/products/maison-margiela-evolution-low-1-fa58704201.jpg",
-      "images/products/maison-margiela-evolution-low-2-f6bb939628.jpg",
-      "images/products/maison-margiela-evolution-low-3-fa8dfae5e0.jpg",
-      "images/products/maison-margiela-evolution-low-4-95e2ecf65f.jpg",
-      "images/products/maison-margiela-evolution-low-5-d65593e201.jpg"
+      "images/products/maison-margiela-evolution-1-f6bb939628.jpg",
+      "images/products/maison-margiela-evolution-2-fa8dfae5e0.jpg",
+      "images/products/maison-margiela-evolution-3-f567e7fb95.jpg",
+      "images/products/maison-margiela-evolution-4-95e2ecf65f.jpg",
+      "images/products/maison-margiela-evolution-5-fa58704201.jpg"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-25T11:37:20.258222"
-  },
-  {
-    "id": "1781728244882",
-    "brand": "",
-    "name": "Nike",
-    "color": "Черный",
-    "price": 180,
-    "sizes": [
-      "41",
-      "42"
-    ],
-    "sizeStock": {
-      "41": 0,
-      "42": 0
-    },
-    "description": "Для уточнения размера модели пишите в директ\nГарантия 30 дней\nМы находимся по адресу:\nГ.Минск, ул. Притыцкого 29 (ТЦ «ТИВАЛИ») 1 этаж\n101 магазин",
-    "images": [
-      "images/products/nike-nike-1-20960cc89b.jpg",
-      "images/products/nike-nike-2-e6692b91f7.jpg",
-      "images/products/nike-nike-3-c0084f8216.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-17T23:35:51.939231"
-  },
-  {
-    "id": "1781517325265",
-    "brand": "",
-    "name": "1",
-    "color": "black",
-    "price": 100,
-    "sizes": [
-      "41",
-      "42",
-      "43",
-      "44",
-      "45"
-    ],
-    "sizeStock": {
-      "41": 1,
-      "42": 1,
-      "43": 1,
-      "44": 1,
-      "45": 1
-    },
-    "description": "hhhhhh",
-    "images": [
-      "images/products/test-1-1-cef7312f35.jpg",
-      "images/products/test-1-2-82778546fb.jpg",
-      "images/products/test-1-3-05d8dc5d8c.jpg",
-      "images/products/test-1-4-4e70b2f844.jpg",
-      "images/products/test-1-5-4005b13ca1.jpg",
-      "images/products/test-1-6-120637726c.jpg",
-      "images/products/test-1-7-fa14451290.jpg",
-      "images/products/test-1-8-7d1ca5c057.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-15T12:57:09.051285"
+    "createdAt": "2026-06-28T19:42:50.680518"
   },
   {
     "id": "1781465484116",
@@ -117,7 +56,7 @@
     "brand": "",
     "name": "Evolution High",
     "color": "brown",
-    "price": 99,
+    "price": 700,
     "sizes": [
       "43",
       "44",
@@ -133,7 +72,7 @@
       "images/products/maison-margiela-evolution-high-1-e97a1c25ca.jpg"
     ],
     "isFavorite": false,
-    "isActive": false,
+    "isActive": true,
     "createdAt": "2026-06-14T22:28:30.829082"
   },
   {
