@@ -1,5 +1,35 @@
 [
   {
+    "id": "1782664743109",
+    "brand": "",
+    "name": "maison margiela evolution",
+    "color": "white",
+    "price": 500,
+    "sizes": [
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "42": 3,
+      "43": 4,
+      "44": 1,
+      "45": 2
+    },
+    "description": "описание товара",
+    "images": [
+      "images/products/maison-margiela-evolution-1-f6bb939628.jpg",
+      "images/products/maison-margiela-evolution-2-fa8dfae5e0.jpg",
+      "images/products/maison-margiela-evolution-3-f567e7fb95.jpg",
+      "images/products/maison-margiela-evolution-4-95e2ecf65f.jpg",
+      "images/products/maison-margiela-evolution-5-fa58704201.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-28T19:42:50.680518"
+  },
+  {
     "id": "1781465484116",
     "brand": "",
     "name": "777",
@@ -9,6 +39,10 @@
       "43",
       "44"
     ],
+    "sizeStock": {
+      "43": 1,
+      "44": 1
+    },
     "description": "hhh",
     "images": [
       "images/products/nike-777-1-629ad28803.jpg"
@@ -28,6 +62,11 @@
       "44",
       "45"
     ],
+    "sizeStock": {
+      "43": 1,
+      "44": 1,
+      "45": 1
+    },
     "description": "new shoesss",
     "images": [
       "images/products/maison-margiela-evolution-high-1-e97a1c25ca.jpg"
@@ -48,6 +87,12 @@
       "45",
       "42"
     ],
+    "sizeStock": {
+      "43": 1,
+      "44": 1,
+      "45": 1,
+      "42": 1
+    },
     "description": "new shpesss",
     "images": [
       "images/products/nike-nike-air-force-1-1-e21c732235.jpg"
@@ -65,6 +110,9 @@
     "sizes": [
       "43"
     ],
+    "sizeStock": {
+      "43": 1
+    },
     "description": "впар",
     "images": [
       "images/products/ppp-gggg-1-d80b12a2bd.jpg"
