@@ -3488,38 +3488,73 @@ body.snkr-gallery-swiping .product-detail-screen{
   touch-action:none!important;
 }
 
-/* v69: restore v66 photo swipe feeling + improve vertical page scroll over photo */
-.product-detail-gallery{
-  touch-action:pan-x!important;
-  overscroll-behavior:none!important;
+/* v69: final gallery touch fix - smooth horizontal photos + normal vertical scroll from photo area */
+.product-detail-gallery,
+.product-gallery-track,
+.product-gallery-slide,
+.product-gallery-slide img{
+  touch-action:pan-y pinch-zoom!important;
+}
+.product-detail-gallery,
+.product-gallery-track{
+  overscroll-behavior-x:contain!important;
+  overscroll-behavior-y:auto!important;
 }
 .product-gallery-track{
-  touch-action:pan-x!important;
-  overscroll-behavior-x:contain!important;
-  overscroll-behavior-y:none!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x mandatory!important;
   scroll-behavior:auto!important;
   -webkit-overflow-scrolling:touch!important;
+  scrollbar-width:none!important;
+  will-change:scroll-position!important;
+  contain:paint!important;
 }
-.product-gallery-track.is-dragging,
-.product-detail-gallery.is-swiping{
+.product-gallery-track::-webkit-scrollbar{display:none!important;}
+.product-gallery-track.snkr-v69-dragging{
   touch-action:none!important;
-  overscroll-behavior:none!important;
+  scroll-snap-type:none!important;
+  scroll-behavior:auto!important;
+  -webkit-overflow-scrolling:auto!important;
+}
+.product-detail-gallery.snkr-v69-swiping{
+  touch-action:none!important;
+}
+.product-gallery-slide{
+  scroll-snap-align:center!important;
+  scroll-snap-stop:normal!important;
+}
+.product-gallery-slide img,
+.product-detail-gallery img{
+  object-fit:contain!important;
+  object-position:center!important;
+  user-select:none!important;
+  -webkit-user-drag:none!important;
+  -webkit-touch-callout:none!important;
 }
 html.snkr-gallery-native-touch,
-body.snkr-gallery-native-touch{
+body.snkr-gallery-native-touch,
+html.snkr-gallery-swiping,
+body.snkr-gallery-swiping{
   overflow:visible!important;
-  touch-action:auto!important;
-  overscroll-behavior:auto!important;
+  overscroll-behavior-x:auto!important;
+  overscroll-behavior-y:auto!important;
 }
 body.snkr-gallery-native-touch .mini-app,
 body.snkr-gallery-native-touch .screen-slot,
-body.snkr-gallery-native-touch .product-detail-screen{
-  touch-action:auto!important;
-  overscroll-behavior:auto!important;
+body.snkr-gallery-native-touch .product-detail-screen,
+body.snkr-gallery-swiping .mini-app,
+body.snkr-gallery-swiping .screen-slot,
+body.snkr-gallery-swiping .product-detail-screen{
+  overflow:visible!important;
+  overscroll-behavior-y:auto!important;
 }
-html.snkr-gallery-swiping,
-body.snkr-gallery-swiping{
-  overflow:hidden!important;
-  touch-action:none!important;
+html.snkr-gallery-v69-horizontal,
+body.snkr-gallery-v69-horizontal{
   overscroll-behavior:none!important;
+}
+.product-gallery-dot,
+.product-gallery-dot.active,
+.product-gallery-dot.is-active{
+  transition:width .22s cubic-bezier(.22,1,.36,1), opacity .22s cubic-bezier(.22,1,.36,1), background-color .22s cubic-bezier(.22,1,.36,1)!important;
 }

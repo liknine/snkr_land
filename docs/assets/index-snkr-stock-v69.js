@@ -395,85 +395,287 @@ Error generating stack: `+e.message+`
 })();
 
 ;(() => {
-  // v69: vertical page scroll on product photo without changing horizontal photo swipe motion.
-  const GALLERY = '.product-detail-gallery';
-  const IGNORE = '.product-gallery-dots, .product-gallery-dot, button, a, input, textarea, select';
-  const STATE = '__snkrVerticalPhotoScrollV69';
-  const getPoint = (event) => {
-    const touch = (event.touches && event.touches[0]) || (event.changedTouches && event.changedTouches[0]);
-    return touch ? { x: touch.clientX, y: touch.clientY } : { x: event.clientX || 0, y: event.clientY || 0 };
-  };
-  const scroller = () => document.scrollingElement || document.documentElement || document.body;
+  // v69: direction-aware gallery. Horizontal = smooth photo swipe, vertical = page scroll stays native.
+  const TRACK = '.product-gallery-track';
+  const SLIDE = '.product-gallery-slide';
+  const DOT = '.product-gallery-dot';
+  const HORIZONTAL_CLASS = 'snkr-gallery-v69-horizontal';
+  const DRAG_CLASS = 'snkr-v69-dragging';
+  const SWIPE_CLASS = 'snkr-v69-swiping';
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
-  function setup(gallery) {
-    if (!gallery || gallery[STATE]) return;
-    gallery[STATE] = true;
+  let active = false;
+  let mode = 'idle';
+  let track = null;
+  let gallery = null;
+  let startX = 0;
+  let startY = 0;
+  let startLeft = 0;
+  let startIndex = 0;
+  let lastX = 0;
+  let lastT = 0;
+  let velocity = 0;
+  let raf = 0;
+  let queuedLeft = null;
 
-    let active = false;
-    let skipped = false;
-    let mode = '';
-    let startX = 0;
-    let startY = 0;
-    let lastY = 0;
-
-    const clearNativeLock = () => {
-      document.documentElement.classList.remove('snkr-gallery-native-touch');
-      document.body.classList.remove('snkr-gallery-native-touch');
-    };
-
-    const onStart = (event) => {
-      skipped = !!event.target?.closest?.(IGNORE);
-      if (skipped) return;
-      const point = getPoint(event);
-      startX = point.x;
-      startY = point.y;
-      lastY = point.y;
-      active = true;
-      mode = '';
-    };
-
-    const onMove = (event) => {
-      if (!active || skipped) return;
-      const point = getPoint(event);
-      const dx = point.x - startX;
-      const dy = point.y - startY;
-      const absX = Math.abs(dx);
-      const absY = Math.abs(dy);
-
-      if (!mode) {
-        if (absY > 7 && absY > absX * 1.16) mode = 'vertical';
-        else if (absX > 7 && absX > absY * 1.08) mode = 'horizontal';
-      }
-
-      if (mode !== 'vertical') return;
-
-      clearNativeLock();
-      if (event.cancelable) event.preventDefault();
-      const deltaY = lastY - point.y;
-      lastY = point.y;
-      if (deltaY) scroller().scrollTop += deltaY;
-    };
-
-    const onEnd = () => {
-      active = false;
-      skipped = false;
-      mode = '';
-      window.setTimeout(clearNativeLock, 0);
-    };
-
-    gallery.addEventListener('touchstart', onStart, { capture: true, passive: true });
-    gallery.addEventListener('touchmove', onMove, { capture: true, passive: false });
-    gallery.addEventListener('touchend', onEnd, { capture: true, passive: true });
-    gallery.addEventListener('touchcancel', onEnd, { capture: true, passive: true });
+  function slides(node) {
+    return Array.from(node?.querySelectorAll?.(SLIDE) || []);
   }
 
+  function dots() {
+    return Array.from(gallery?.querySelectorAll?.(DOT) || []);
+  }
+
+  function width() {
+    return Math.max(1, track?.clientWidth || gallery?.clientWidth || 1);
+  }
+
+  function maxIndex() {
+    return Math.max(0, slides(track).length - 1);
+  }
+
+  function currentIndex() {
+    return clamp(Math.round((track?.scrollLeft || 0) / width()), 0, maxIndex());
+  }
+
+  function syncDots(index = currentIndex()) {
+    dots().forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+      dot.classList.toggle('is-active', i === index);
+    });
+  }
+
+  function point(event) {
+    const touch = (event.touches && event.touches[0]) || (event.changedTouches && event.changedTouches[0]);
+    return touch ? { x: touch.clientX, y: touch.clientY } : { x: event.clientX || 0, y: event.clientY || 0 };
+  }
+
+  function cancelAnimation(node = track) {
+    if (node && node.__snkrV69Anim) {
+      cancelAnimationFrame(node.__snkrV69Anim);
+      node.__snkrV69Anim = 0;
+    }
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+    queuedLeft = null;
+  }
+
+  function removeLegacyLocks() {
+    document.documentElement.classList.remove('snkr-gallery-native-touch', 'snkr-gallery-swiping');
+    document.body.classList.remove('snkr-gallery-native-touch', 'snkr-gallery-swiping');
+    document.querySelectorAll(`${TRACK}.is-dragging, .product-detail-gallery.is-swiping`).forEach((node) => {
+      node.classList.remove('is-dragging', 'is-swiping');
+    });
+  }
+
+  function enterHorizontal() {
+    if (!track || !gallery) return;
+    mode = 'horizontal';
+    cancelAnimation();
+    track.classList.add(DRAG_CLASS);
+    gallery.classList.add(SWIPE_CLASS);
+    document.documentElement.classList.add(HORIZONTAL_CLASS);
+    document.body.classList.add(HORIZONTAL_CLASS);
+    removeLegacyLocks();
+  }
+
+  function leaveHorizontal() {
+    track?.classList.remove(DRAG_CLASS, 'is-dragging');
+    gallery?.classList.remove(SWIPE_CLASS, 'is-swiping');
+    document.documentElement.classList.remove(HORIZONTAL_CLASS, 'snkr-gallery-native-touch', 'snkr-gallery-swiping');
+    document.body.classList.remove(HORIZONTAL_CLASS, 'snkr-gallery-native-touch', 'snkr-gallery-swiping');
+  }
+
+  function setLeft(left) {
+    if (!track) return;
+    queuedLeft = clamp(left, 0, maxIndex() * width());
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      if (queuedLeft == null || !track) return;
+      track.scrollLeft = queuedLeft;
+      syncDots(clamp(Math.round(track.scrollLeft / width()), 0, maxIndex()));
+      queuedLeft = null;
+    });
+  }
+
+  function animateTo(index) {
+    if (!track) return finish();
+    cancelAnimation();
+    const targetIndex = clamp(index, 0, maxIndex());
+    const from = track.scrollLeft;
+    const to = targetIndex * width();
+    const distance = Math.abs(to - from);
+    if (distance < 1) {
+      track.scrollLeft = to;
+      syncDots(targetIndex);
+      finish();
+      return;
+    }
+    const duration = Math.min(360, Math.max(230, 185 + distance * 0.18));
+    const startedAt = performance.now();
+    const ease = (t) => 1 - Math.pow(1 - t, 3.1);
+    const frame = (now) => {
+      if (!track) return finish();
+      const progress = Math.min(1, (now - startedAt) / duration);
+      track.scrollLeft = from + (to - from) * ease(progress);
+      syncDots(clamp(Math.round(track.scrollLeft / width()), 0, maxIndex()));
+      if (progress < 1) track.__snkrV69Anim = requestAnimationFrame(frame);
+      else {
+        track.__snkrV69Anim = 0;
+        track.scrollLeft = to;
+        syncDots(targetIndex);
+        finish();
+      }
+    };
+    track.__snkrV69Anim = requestAnimationFrame(frame);
+  }
+
+  function finish() {
+    cancelAnimation();
+    leaveHorizontal();
+    active = false;
+    mode = 'idle';
+    syncDots();
+  }
+
+  function onStart(event) {
+    const targetTrack = event.target?.closest?.(TRACK);
+    if (!targetTrack || !targetTrack.closest('.product-detail-gallery')) return;
+    if (event.target?.closest?.('.product-gallery-dots,button,a')) return;
+    if (slides(targetTrack).length <= 1) return;
+
+    track = targetTrack;
+    gallery = targetTrack.closest('.product-detail-gallery');
+    cancelAnimation(track);
+    const p = point(event);
+    startX = lastX = p.x;
+    startY = p.y;
+    startLeft = track.scrollLeft;
+    startIndex = currentIndex();
+    lastT = performance.now();
+    velocity = 0;
+    active = true;
+    mode = 'pending';
+  }
+
+  function onMove(event) {
+    if (!active || !track || !gallery) return;
+    const p = point(event);
+    const dx = p.x - startX;
+    const dy = p.y - startY;
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+    const now = performance.now();
+    const dt = Math.max(1, now - lastT);
+    velocity = (p.x - lastX) / dt;
+    lastX = p.x;
+    lastT = now;
+
+    if (mode === 'pending') {
+      if (absX < 5 && absY < 5) return;
+      if (absY > absX * 1.06) {
+        active = false;
+        mode = 'vertical';
+        leaveHorizontal();
+        removeLegacyLocks();
+        return;
+      }
+      if (absX > 7 && absX > absY * 1.08) enterHorizontal();
+    }
+
+    if (mode !== 'horizontal') return;
+    if (event.cancelable) event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation?.();
+
+    const w = width();
+    const edge = maxIndex() * w;
+    let nextLeft = startLeft - dx;
+    if (nextLeft < 0) nextLeft = nextLeft * 0.28;
+    if (nextLeft > edge) nextLeft = edge + (nextLeft - edge) * 0.28;
+    setLeft(nextLeft);
+  }
+
+  function onEnd(event) {
+    if (!active || !track) {
+      removeLegacyLocks();
+      return;
+    }
+    const wasHorizontal = mode === 'horizontal';
+    const p = point(event);
+    const dx = p.x - startX;
+
+    if (!wasHorizontal) {
+      finish();
+      return;
+    }
+
+    if (event.cancelable) event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation?.();
+
+    const w = width();
+    const threshold = Math.max(38, w * 0.13);
+    let target = startIndex;
+    if (dx <= -threshold || velocity < -0.38) target = startIndex + 1;
+    else if (dx >= threshold || velocity > 0.38) target = startIndex - 1;
+    animateTo(target);
+  }
+
+  function onScroll(event) {
+    const node = event.target?.closest?.(TRACK);
+    if (!node || node !== event.target) return;
+    const relatedGallery = node.closest('.product-detail-gallery');
+    if (!relatedGallery) return;
+    requestAnimationFrame(() => {
+      const oldTrack = track;
+      const oldGallery = gallery;
+      track = node;
+      gallery = relatedGallery;
+      syncDots();
+      track = oldTrack;
+      gallery = oldGallery;
+    });
+  }
+
+  function onDotClick(event) {
+    const dot = event.target?.closest?.(DOT);
+    if (!dot) return;
+    const relatedGallery = dot.closest('.product-detail-gallery');
+    const relatedTrack = relatedGallery?.querySelector?.(TRACK);
+    if (!relatedTrack) return;
+    event.preventDefault();
+    event.stopPropagation();
+    track = relatedTrack;
+    gallery = relatedGallery;
+    const index = dots().indexOf(dot);
+    if (index >= 0) animateTo(index);
+  }
+
+  document.addEventListener('touchstart', onStart, { capture: true, passive: true });
+  document.addEventListener('touchmove', onMove, { capture: true, passive: false });
+  document.addEventListener('touchend', onEnd, { capture: true, passive: false });
+  document.addEventListener('touchcancel', onEnd, { capture: true, passive: false });
+  document.addEventListener('scroll', onScroll, { capture: true, passive: true });
+  document.addEventListener('click', onDotClick, true);
+
   function init(root = document) {
-    root.querySelectorAll?.(GALLERY).forEach(setup);
+    root.querySelectorAll?.(TRACK).forEach((node) => {
+      const relatedGallery = node.closest('.product-detail-gallery');
+      if (!relatedGallery) return;
+      const oldTrack = track;
+      const oldGallery = gallery;
+      track = node;
+      gallery = relatedGallery;
+      syncDots();
+      track = oldTrack;
+      gallery = oldGallery;
+    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init(), { once: true });
   else init();
-
   new MutationObserver((mutations) => {
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
