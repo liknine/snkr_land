@@ -1,5 +1,28 @@
 [
   {
+    "id": "1782666297171",
+    "brand": "",
+    "name": "А",
+    "color": "А",
+    "price": 0,
+    "sizes": [
+      "42"
+    ],
+    "sizeStock": {
+      "42": 0
+    },
+    "description": "Овалов",
+    "images": [
+      "images/products/a-1-54955b4440.jpg",
+      "images/products/a-2-07edc6b847.jpg",
+      "images/products/a-3-c2710c7b3f.jpg",
+      "images/products/a-4-356a839816.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-28T20:06:35.967046"
+  },
+  {
     "id": "1782664743109",
     "brand": "",
     "name": "maison margiela evolution",
