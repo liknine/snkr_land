@@ -1,0 +1,41 @@
+/* v96: мягкая защита карточки товара от сворачивания Telegram + безопасная галерея без белых слайдов */
+html,
+body,
+#root,
+.app-canvas,
+.mini-app,
+.screen-slot {
+  overscroll-behavior-y: contain !important;
+}
+
+body.snkr-v96-product-active .product-detail-screen {
+  overscroll-behavior-y: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+body.snkr-v96-product-active.snkr-v96-edge-active .product-detail-screen {
+  transform: translate3d(0, var(--snkr-v96-edge-y, 0px), 0) !important;
+  will-change: transform !important;
+}
+
+.product-detail-gallery,
+.product-gallery-track,
+.product-gallery-slide,
+.product-gallery-slide img,
+.product-detail-gallery img {
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+}
+
+.product-gallery-slide {
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: #fff !important;
+}
+
+.product-gallery-slide img,
+.product-detail-gallery img {
+  visibility: visible !important;
+  opacity: 1 !important;
+  image-rendering: auto !important;
+}
