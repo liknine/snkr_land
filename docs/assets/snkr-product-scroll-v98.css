@@ -1,0 +1,8 @@
+/* v98: normal product page vertical scroll; no custom rubber transform. */
+html,body,#root,.app-canvas,.mini-app,.screen-slot{overscroll-behavior-y:contain!important}
+.product-detail-screen{overscroll-behavior-y:contain!important;-webkit-overflow-scrolling:touch!important;touch-action:pan-y!important;transform:none!important;will-change:auto!important}
+body.snkr-v96-product-active.snkr-v96-edge-active .product-detail-screen,
+body.snkr-v98-product-active .product-detail-screen{transform:none!important;will-change:auto!important}
+body.snkr-v96-edge-active{--snkr-v96-edge-y:0px!important}
+.product-detail-gallery{touch-action:pan-y pinch-zoom!important;overscroll-behavior:contain!important}
+.product-gallery-track{overscroll-behavior-x:contain!important;overscroll-behavior-y:auto!important}
