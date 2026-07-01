@@ -1,0 +1,13 @@
+.snkr-v111-mini--return > .snkr-v111-icon--small{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+
+.snkr-v111-mini--return > .snkr-v111-icon--small svg{
+  width:23px!important;
+  height:23px!important;
+  display:block!important;
+  overflow:visible!important;
+  transform:none!important;
+}
