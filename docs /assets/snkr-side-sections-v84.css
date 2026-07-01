@@ -1,0 +1,322 @@
+/* v83: side category filters + fixed catalog filter sheet + stable smooth gallery */
+.product-card.snkr-hidden-by-section{display:none!important}.snkr-section-empty{margin:26px 0 0!important;padding:22px 18px!important;border:1px solid rgba(0,0,0,.08)!important;border-radius:24px!important;background:rgba(255,255,255,.52)!important;text-align:center!important}.snkr-section-empty[hidden]{display:none!important}.snkr-section-empty h2{margin:0 0 8px!important;font-size:19px!important;line-height:1.08!important;font-weight:760!important;letter-spacing:-.035em!important}.snkr-section-empty p{margin:0!important;font-size:13px!important;line-height:1.35!important;color:var(--muted)!important}.side-menu-kicker{letter-spacing:.58em!important}.side-menu-row[data-snkr-menu-section]{cursor:pointer!important}.side-menu-row[data-snkr-menu-section].is-active{border-color:rgba(255,90,31,.28)!important;background:rgba(255,90,31,.08)!important;color:var(--orange)!important;box-shadow:0 12px 34px rgba(255,90,31,.11),inset 0 1px 0 rgba(255,255,255,.72)!important}.side-menu-row[data-snkr-menu-section].is-active svg{color:var(--orange)!important;stroke:currentColor!important}
+
+
+
+/* v83: filter button opens a real modal; background never scrolls while it is open */
+html.snkr-page-scroll-locked,
+body.snkr-page-scroll-locked{
+  overflow:hidden!important;
+  overscroll-behavior:none!important;
+}
+.filter-sheet-layer{
+  position:fixed!important;
+  inset:0!important;
+  z-index:360!important;
+  pointer-events:none!important;
+  overflow:hidden!important;
+  display:block!important;
+  transform:none!important;
+}
+.filter-sheet-layer.is-open,
+.filter-sheet-layer.snkr-v83-open{
+  pointer-events:auto!important;
+}
+.filter-sheet-layer:not(.is-open),
+.filter-sheet-layer[aria-hidden="true"]{
+  pointer-events:none!important;
+}
+.filter-sheet-layer .filter-backdrop{
+  position:fixed!important;
+  inset:0!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  background:transparent!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:opacity 180ms ease, visibility 180ms ease!important;
+}
+.filter-sheet-layer.is-open .filter-backdrop,
+.filter-sheet-layer.snkr-v83-open .filter-backdrop{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  background:rgba(0,0,0,.22)!important;
+  backdrop-filter:blur(3px)!important;
+  -webkit-backdrop-filter:blur(3px)!important;
+}
+.filter-sheet-layer .filter-sheet{
+  position:fixed!important;
+  left:max(16px,env(safe-area-inset-left))!important;
+  right:max(16px,env(safe-area-inset-right))!important;
+  top:50%!important;
+  bottom:auto!important;
+  width:auto!important;
+  max-height:min(var(--snkr-filter-modal-max-height,calc(100dvh - 46px)),calc(100dvh - 46px - env(safe-area-inset-top) - env(safe-area-inset-bottom)))!important;
+  min-height:0!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+  touch-action:pan-y!important;
+  border-radius:30px!important;
+  padding:12px 18px calc(16px + env(safe-area-inset-bottom))!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:translateY(calc(-50% + 18px)) scale(.985)!important;
+  transform-origin:50% 50%!important;
+  box-shadow:0 22px 74px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.84)!important;
+  transition:transform 300ms cubic-bezier(.22,1,.36,1),opacity 190ms ease,visibility 190ms ease!important;
+}
+.filter-sheet-layer.is-open .filter-sheet,
+.filter-sheet-layer.snkr-v83-open .filter-sheet{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  transform:translateY(-50%) scale(1)!important;
+}
+.filter-sheet-layer .sheet-handle{margin:2px auto 10px!important;}
+.filter-sheet-layer .filter-sheet-head{margin-bottom:12px!important;}
+.filter-sheet-layer .filter-section{margin-top:14px!important;}
+.filter-sheet-layer .filter-actions{
+  position:sticky!important;
+  bottom:0!important;
+  margin-top:16px!important;
+  padding-top:12px!important;
+  padding-bottom:2px!important;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.98) 26%)!important;
+}
+body.snkr-filters-open .bottom-nav-wrap{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translate(-50%,calc(110px + env(safe-area-inset-bottom))) scale(.96)!important;
+  transition:transform .26s cubic-bezier(.18,.9,.2,1),opacity .18s!important;
+}
+body:not(.snkr-filters-open) .screen-slot,
+body:not(.snkr-filters-open) .catalog-screen,
+body:not(.snkr-filters-open) .products-grid{
+  filter:none!important;
+}
+@media (max-width:374px){
+  .filter-sheet-layer .filter-sheet{
+    left:10px!important;
+    right:10px!important;
+    max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+    border-radius:26px!important;
+    padding-left:15px!important;
+    padding-right:15px!important;
+  }
+  .filter-sheet-layer .filter-actions{grid-template-columns:1fr!important;}
+}
+
+/* v83: smoother product photo gallery. One swipe = one slide; vertical touch scroll remains native. */
+.product-detail-gallery,
+.product-gallery-track,
+.product-gallery-slide,
+.product-gallery-slide img{
+  touch-action:pan-y pinch-zoom!important;
+}
+.product-gallery-track{
+  overflow-x:hidden!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:none!important;
+  scroll-behavior:auto!important;
+  overscroll-behavior-x:contain!important;
+  overscroll-behavior-y:auto!important;
+  -webkit-overflow-scrolling:auto!important;
+  scrollbar-width:none!important;
+  will-change:scroll-position!important;
+  contain:layout paint!important;
+}
+.product-gallery-track::-webkit-scrollbar{display:none!important;}
+.product-gallery-track.snkr-v83-gallery-dragging{cursor:grabbing!important;user-select:none!important;}
+.product-gallery-track.snkr-v83-gallery-animating{cursor:grabbing!important;}
+.product-gallery-slide{scroll-snap-align:none!important;scroll-snap-stop:normal!important;}
+.product-gallery-slide img,
+.product-detail-gallery img{
+  object-fit:contain!important;
+  object-position:center!important;
+  user-select:none!important;
+  -webkit-user-drag:none!important;
+  -webkit-touch-callout:none!important;
+  transform:translateZ(0)!important;
+}
+.product-gallery-dot,
+.product-gallery-dot.active,
+.product-gallery-dot.is-active{
+  transition:width .38s cubic-bezier(.16,1,.3,1),opacity .38s ease,background-color .38s ease!important;
+}
+
+/* v83: only fix catalog filter modal placement. Gallery behavior from v79 is not changed. */
+.filter-sheet-layer{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  z-index:9999!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:calc(16px + env(safe-area-inset-top)) max(14px,env(safe-area-inset-left)) calc(16px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-right))!important;
+  overflow:hidden!important;
+  transform:none!important;
+  contain:none!important;
+}
+.filter-sheet-layer .filter-backdrop{
+  position:absolute!important;
+  inset:0!important;
+  background:rgba(0,0,0,.16)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.filter-sheet-layer .filter-sheet{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  margin:0 auto!important;
+  width:min(100%,720px)!important;
+  max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+  overflow-y:auto!important;
+  transform:translateY(10px) scale(.99)!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+.filter-sheet-layer.is-open .filter-sheet,
+.filter-sheet-layer.snkr-v83-open .filter-sheet{
+  transform:translateY(0) scale(1)!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+.filter-sheet-layer.is-open .filter-backdrop,
+.filter-sheet-layer.snkr-v83-open .filter-backdrop{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+.filter-sheet-layer .filter-actions{
+  position:sticky!important;
+  bottom:0!important;
+}
+@media (max-width:430px){
+  .filter-sheet-layer{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+  .filter-sheet-layer .filter-sheet{
+    width:calc(100vw - 28px)!important;
+    border-radius:28px!important;
+  }
+}
+
+
+/* v83: close fix only. Position is left exactly as in v81. */
+.filter-sheet-layer.snkr-v83-force-closed{pointer-events:none!important;}
+.filter-sheet-layer.snkr-v83-force-closed .filter-sheet,
+.filter-sheet-layer.snkr-v83-force-closed .filter-backdrop{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
+.filter-sheet-layer .filter-sheet{z-index:2!important;}
+.filter-sheet-layer .filter-backdrop{z-index:1!important;}
+.filter-sheet-layer .sheet-close,
+.filter-sheet-layer .sheet-handle,
+.filter-sheet-layer .filter-backdrop,
+.filter-sheet-layer .filter-apply{pointer-events:auto!important;}
+
+
+/* v84: final modal position. Do not touch gallery. The sheet is centered and fully inside the visible viewport. */
+.filter-sheet-layer.snkr-v84-managed{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  z-index:9999!important;
+  pointer-events:none!important;
+  overflow:hidden!important;
+  display:block!important;
+  padding:0!important;
+  transform:none!important;
+  contain:none!important;
+}
+.filter-sheet-layer.snkr-v84-managed.snkr-v84-open{
+  pointer-events:auto!important;
+}
+.filter-sheet-layer.snkr-v84-managed .filter-backdrop{
+  position:fixed!important;
+  inset:0!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  background:rgba(0,0,0,.18)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:opacity .18s ease, visibility .18s ease!important;
+}
+.filter-sheet-layer.snkr-v84-managed.snkr-v84-open .filter-backdrop{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+.filter-sheet-layer.snkr-v84-managed .filter-sheet{
+  position:fixed!important;
+  left:max(14px,env(safe-area-inset-left))!important;
+  right:max(14px,env(safe-area-inset-right))!important;
+  top:var(--snkr-filter-top,18px)!important;
+  bottom:auto!important;
+  width:auto!important;
+  max-width:none!important;
+  height:auto!important;
+  max-height:var(--snkr-filter-height,calc(100dvh - 36px))!important;
+  min-height:0!important;
+  margin:0!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+  touch-action:pan-y!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:translate3d(0,10px,0) scale(.99)!important;
+  transform-origin:50% 50%!important;
+  border-radius:30px!important;
+  padding:12px 20px calc(16px + env(safe-area-inset-bottom))!important;
+  transition:transform .24s cubic-bezier(.2,.85,.2,1), opacity .18s ease, visibility .18s ease!important;
+}
+.filter-sheet-layer.snkr-v84-managed.snkr-v84-open .filter-sheet{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  transform:translate3d(0,0,0) scale(1)!important;
+}
+.filter-sheet-layer.snkr-v84-managed.snkr-v84-force-closed,
+.filter-sheet-layer.snkr-v84-managed.snkr-v84-force-closed .filter-sheet,
+.filter-sheet-layer.snkr-v84-managed.snkr-v84-force-closed .filter-backdrop{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+.filter-sheet-layer.snkr-v84-managed .filter-actions{
+  position:sticky!important;
+  bottom:0!important;
+  margin-top:18px!important;
+  padding-top:12px!important;
+  padding-bottom:2px!important;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.98) 28%)!important;
+}
+.filter-sheet-layer.snkr-v84-managed .sheet-handle{margin:2px auto 14px!important;}
+body.snkr-filters-open .screen-slot,
+body.snkr-filters-open .catalog-screen,
+body.snkr-filters-open .products-grid{
+  filter:none!important;
+}
+@media (max-width:374px){
+  .filter-sheet-layer.snkr-v84-managed .filter-sheet{
+    left:10px!important;
+    right:10px!important;
+    border-radius:26px!important;
+    padding-left:16px!important;
+    padding-right:16px!important;
+  }
+}
