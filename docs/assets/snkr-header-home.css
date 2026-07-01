@@ -1,0 +1,4 @@
+.app-header .brand-lockup,
+.app-header .brand-logo,
+.app-header .brand-title-text{cursor:pointer!important;-webkit-tap-highlight-color:transparent!important;touch-action:manipulation!important}
+.app-header .brand-lockup:active{transform:scale(.985)!important}
