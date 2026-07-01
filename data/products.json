@@ -20,11 +20,13 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-28T20:06:35.967046"
+    "createdAt": "2026-06-28T20:06:35.967046",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
     "id": "1782664743109",
-    "brand": "",
+    "brand": "Maison Margiela",
     "name": "maison margiela evolution",
     "color": "white",
     "price": 500,
@@ -50,7 +52,9 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-28T19:42:50.680518"
+    "createdAt": "2026-06-28T19:42:50.680518",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
     "id": "1781465484116",
@@ -72,11 +76,13 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-14T22:31:54.202208"
+    "createdAt": "2026-06-14T22:31:54.202208",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
     "id": "1781465267375",
-    "brand": "",
+    "brand": "Evolution",
     "name": "Evolution High",
     "color": "brown",
     "price": 700,
@@ -96,11 +102,13 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-14T22:28:30.829082"
+    "createdAt": "2026-06-14T22:28:30.829082",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
     "id": "1781359871575",
-    "brand": "",
+    "brand": "Nike",
     "name": "nike air force 1",
     "color": "black",
     "price": 300,
@@ -122,7 +130,9 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-13T17:12:06.323778"
+    "createdAt": "2026-06-13T17:12:06.323778",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
     "id": "1781295156753",
@@ -142,6 +152,8 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-06-12T23:13:04.409527"
+    "createdAt": "2026-06-12T23:13:04.409527",
+    "section": "men",
+    "category": "Мужская обувь"
   }
 ]
