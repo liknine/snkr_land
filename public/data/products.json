@@ -1,10 +1,43 @@
 [
   {
+    "id": "1782939005334",
+    "brand": "Nike",
+    "name": "Nike",
+    "color": "",
+    "price": 180,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39"
+    ],
+    "sizeStock": {
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1
+    },
+    "description": "Для уточнения информации пишите менеджеру",
+    "images": [
+      "images/products/nike-1-8f342abe92.jpg",
+      "images/products/nike-2-c0ade657a7.jpg",
+      "images/products/nike-3-37f6544318.jpg",
+      "images/products/nike-4-9eca65f2e2.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-01T23:52:01.470189"
+  },
+  {
     "id": "1782666297171",
     "brand": "",
     "name": "А",
     "color": "А",
     "price": 0,
+    "section": "men",
+    "category": "Мужская обувь",
     "sizes": [
       "42"
     ],
@@ -24,10 +57,12 @@
   },
   {
     "id": "1782664743109",
-    "brand": "",
+    "brand": "Maison Margiela",
     "name": "maison margiela evolution",
     "color": "white",
     "price": 500,
+    "section": "men",
+    "category": "Мужская обувь",
     "sizes": [
       "42",
       "43",
@@ -58,6 +93,8 @@
     "name": "777",
     "color": "ggg",
     "price": 700,
+    "section": "men",
+    "category": "Мужская обувь",
     "sizes": [
       "43",
       "44"
@@ -76,10 +113,12 @@
   },
   {
     "id": "1781465267375",
-    "brand": "",
+    "brand": "Evolution",
     "name": "Evolution High",
     "color": "brown",
     "price": 700,
+    "section": "men",
+    "category": "Мужская обувь",
     "sizes": [
       "43",
       "44",
@@ -100,10 +139,12 @@
   },
   {
     "id": "1781359871575",
-    "brand": "",
+    "brand": "Nike",
     "name": "nike air force 1",
     "color": "black",
     "price": 300,
+    "section": "men",
+    "category": "Мужская обувь",
     "sizes": [
       "43",
       "44",
@@ -130,6 +171,8 @@
     "name": "гггг",
     "color": "ррр",
     "price": 66,
+    "section": "men",
+    "category": "Мужская обувь",
     "sizes": [
       "43"
     ],
