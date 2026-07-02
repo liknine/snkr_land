@@ -32,30 +32,6 @@
     "createdAt": "2026-06-28T19:42:50.680518"
   },
   {
-    "id": "1781465484116",
-    "brand": "",
-    "name": "777",
-    "color": "ggg",
-    "price": 700,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "43",
-      "44"
-    ],
-    "sizeStock": {
-      "43": 1,
-      "44": 1
-    },
-    "description": "hhh",
-    "images": [
-      "images/products/nike-777-1-629ad28803.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-14T22:31:54.202208"
-  },
-  {
     "id": "1781465267375",
     "brand": "Evolution",
     "name": "Evolution High",
