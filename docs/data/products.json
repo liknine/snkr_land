@@ -1,33 +1,5 @@
 [
   {
-    "id": "1781359871575",
-    "brand": "",
-    "name": "nike air force 1",
-    "color": "black",
-    "price": 300,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "43",
-      "44",
-      "45",
-      "42"
-    ],
-    "sizeStock": {
-      "43": 1,
-      "44": 1,
-      "45": 1,
-      "42": 1
-    },
-    "description": "new shpesss",
-    "images": [
-      "images/products/nike-nike-air-force-1-1-e21c732235.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-13T17:12:06.323778"
-  },
-  {
     "id": "1781295156753",
     "brand": "",
     "name": "гггг",
