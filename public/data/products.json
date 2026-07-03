@@ -1,63 +1,7 @@
 [
   {
-    "id": "1782664743109",
-    "brand": "Maison Margiela",
-    "name": "maison margiela evolution",
-    "color": "white",
-    "price": 500,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "42",
-      "43",
-      "44",
-      "45"
-    ],
-    "sizeStock": {
-      "42": 3,
-      "43": 4,
-      "44": 1,
-      "45": 2
-    },
-    "description": "описание товара",
-    "images": [
-      "images/products/maison-margiela-evolution-1-f6bb939628.jpg",
-      "images/products/maison-margiela-evolution-2-fa8dfae5e0.jpg",
-      "images/products/maison-margiela-evolution-3-f567e7fb95.jpg",
-      "images/products/maison-margiela-evolution-4-95e2ecf65f.jpg",
-      "images/products/maison-margiela-evolution-5-fa58704201.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-28T19:42:50.680518"
-  },
-  {
-    "id": "1781465484116",
-    "brand": "",
-    "name": "777",
-    "color": "ggg",
-    "price": 700,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "43",
-      "44"
-    ],
-    "sizeStock": {
-      "43": 1,
-      "44": 1
-    },
-    "description": "hhh",
-    "images": [
-      "images/products/nike-777-1-629ad28803.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-06-14T22:31:54.202208"
-  },
-  {
     "id": "1781465267375",
-    "brand": "Evolution",
+    "brand": "",
     "name": "Evolution High",
     "color": "brown",
     "price": 700,
@@ -83,7 +27,7 @@
   },
   {
     "id": "1781359871575",
-    "brand": "Nike",
+    "brand": "",
     "name": "nike air force 1",
     "color": "black",
     "price": 300,
