@@ -1,0 +1,29 @@
+/* v121: catalog cards only. Gallery/swipe/scroll logic is untouched. */
+.catalog-screen .product-card .product-media{
+  width:calc(100% + 18px)!important;
+  margin-left:-9px!important;
+  margin-right:-9px!important;
+}
+
+.catalog-screen .product-card .product-media img{
+  width:calc(100% + 8px)!important;
+  max-width:none!important;
+}
+
+.snkr-admin-product-id{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin-top:8px!important;
+  padding:4px 8px!important;
+  border-radius:999px!important;
+  background:rgba(0,0,0,.08)!important;
+  color:rgba(0,0,0,.72)!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  font-weight:700!important;
+  letter-spacing:-.015em!important;
+  white-space:nowrap!important;
+}
