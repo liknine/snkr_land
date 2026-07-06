@@ -1,0 +1,83 @@
+/* v91: stable native gallery, no custom rubber transform. Smoothness comes from browser-native scroll-snap. */
+html,
+body{
+  overscroll-behavior-y:contain!important;
+  overscroll-behavior-x:none!important;
+}
+.product-detail-screen{
+  transform:none!important;
+  will-change:auto!important;
+  overscroll-behavior-y:contain!important;
+  overscroll-behavior-x:none!important;
+}
+.product-detail-screen.snkr-product-rubber-active,
+.product-detail-screen.snkr-product-rubber-release{
+  transform:none!important;
+  transition:none!important;
+}
+.product-detail-gallery{
+  overflow:hidden!important;
+  touch-action:pan-x pan-y!important;
+  overscroll-behavior:contain!important;
+  -webkit-user-select:none!important;
+  user-select:none!important;
+  contain:layout paint!important;
+}
+.product-gallery-track{
+  display:flex!important;
+  width:100%!important;
+  height:100%!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x mandatory!important;
+  scroll-behavior:smooth!important;
+  -webkit-overflow-scrolling:touch!important;
+  touch-action:pan-x pan-y!important;
+  overscroll-behavior-x:contain!important;
+  overscroll-behavior-y:contain!important;
+  transform:none!important;
+  -webkit-transform:none!important;
+  transition:none!important;
+  will-change:scroll-position!important;
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+  contain:layout paint!important;
+}
+.product-gallery-track::-webkit-scrollbar{display:none!important}
+.product-gallery-track.is-dragging,
+.product-gallery-track.is-animating,
+.product-gallery-track.snkr-v90-gallery-dragging,
+.product-gallery-track.snkr-v90-gallery-animating{
+  transform:none!important;
+  -webkit-transform:none!important;
+  transition:none!important;
+}
+.product-gallery-slide{
+  flex:0 0 100%!important;
+  width:100%!important;
+  min-width:100%!important;
+  height:100%!important;
+  scroll-snap-align:center!important;
+  scroll-snap-stop:always!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  transform:translateZ(0)!important;
+  -webkit-transform:translateZ(0)!important;
+  backface-visibility:hidden!important;
+  -webkit-backface-visibility:hidden!important;
+  contain:layout paint!important;
+}
+.product-gallery-slide img{
+  pointer-events:none!important;
+  -webkit-user-drag:none!important;
+  -webkit-touch-callout:none!important;
+  user-select:none!important;
+  transform:translateZ(0)!important;
+  -webkit-transform:translateZ(0)!important;
+  backface-visibility:hidden!important;
+  -webkit-backface-visibility:hidden!important;
+}
+.product-gallery-dot{
+  transition:width .24s cubic-bezier(.2,.8,.2,1),background-color .24s cubic-bezier(.2,.8,.2,1),opacity .24s cubic-bezier(.2,.8,.2,1)!important;
+}
