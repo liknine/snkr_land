@@ -1,150 +1,159 @@
 [
   {
-    "id": "1783355269494",
+    "id": "1782666297171",
     "brand": "",
-    "name": "Golden Goose",
-    "color": "",
-    "price": 220,
-    "section": "men",
-    "category": "Мужская обувь",
+    "name": "А",
+    "color": "А",
+    "price": 0,
     "sizes": [
-      "41",
-      "42",
-      "44"
+      "42"
     ],
     "sizeStock": {
-      "41": 1,
-      "42": 1,
-      "44": 2
+      "42": 0
     },
-    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "description": "Овалов",
     "images": [
-      "images/products/golden-goose-1-09a9edb43e.jpg",
-      "images/products/golden-goose-2-5c3472e0cf.jpg",
-      "images/products/golden-goose-3-53322e64e1.jpg",
-      "images/products/golden-goose-4-a92c04078e.jpg",
-      "images/products/golden-goose-5-eb6f4a707f.jpg"
+      "images/products/a-1-54955b4440.jpg",
+      "images/products/a-2-07edc6b847.jpg",
+      "images/products/a-3-c2710c7b3f.jpg",
+      "images/products/a-4-356a839816.jpg"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-07-06T16:31:33.844808"
+    "createdAt": "2026-06-28T20:06:35.967046",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
-    "id": "1783353829219",
-    "brand": "",
-    "name": "Nike",
-    "color": "",
-    "price": 160,
-    "section": "men",
-    "category": "Мужская обувь",
+    "id": "1782664743109",
+    "brand": "Maison Margiela",
+    "name": "maison margiela evolution",
+    "color": "white",
+    "price": 500,
     "sizes": [
-      "41",
       "42",
       "43",
       "44",
       "45"
     ],
     "sizeStock": {
-      "41": 1,
-      "42": 2,
-      "43": 3,
-      "44": 2,
-      "45": 1
+      "42": 3,
+      "43": 4,
+      "44": 1,
+      "45": 2
     },
-    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "description": "описание товара",
     "images": [
-      "images/products/nike-1-0af611a488.jpg",
-      "images/products/nike-2-96e420d431.jpg",
-      "images/products/nike-3-fb0a710228.jpg"
+      "images/products/maison-margiela-evolution-1-f6bb939628.jpg",
+      "images/products/maison-margiela-evolution-2-fa8dfae5e0.jpg",
+      "images/products/maison-margiela-evolution-3-f567e7fb95.jpg",
+      "images/products/maison-margiela-evolution-4-95e2ecf65f.jpg",
+      "images/products/maison-margiela-evolution-5-fa58704201.jpg"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-07-06T16:07:57.397967"
-  },
-  {
-    "id": "1783353165441",
-    "brand": "",
-    "name": "Nike",
-    "color": "",
-    "price": 160,
-    "section": "women",
-    "category": "Женская обувь",
-    "sizes": [
-      "37",
-      "38",
-      "40"
-    ],
-    "sizeStock": {
-      "37": 2,
-      "38": 1,
-      "40": 2
-    },
-    "description": "По всем вопросам обращайтесь к менеджеру.",
-    "images": [
-      "images/products/nike-1-0a55648bbc.jpg",
-      "images/products/nike-2-b158b3e949.jpg",
-      "images/products/nike-3-11ffcf4fa6.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-06T15:55:11.075897"
-  },
-  {
-    "id": "1783352799973",
-    "brand": "",
-    "name": "Nike",
-    "color": "",
-    "price": 170,
+    "createdAt": "2026-06-28T19:42:50.680518",
     "section": "men",
-    "category": "Мужская обувь",
+    "category": "Мужская обувь"
+  },
+  {
+    "id": "1781465484116",
+    "brand": "",
+    "name": "777",
+    "color": "ggg",
+    "price": 700,
     "sizes": [
-      "42",
       "43",
       "44"
     ],
     "sizeStock": {
-      "42": 3,
       "43": 1,
       "44": 1
     },
-    "description": "Для уточнения информации, обращайтесь к менеджеру.",
+    "description": "hhh",
     "images": [
-      "images/products/nike-1-9748cc9405.jpg",
-      "images/products/nike-2-ef844b2582.jpg",
-      "images/products/nike-3-4fed5ef4df.jpg",
-      "images/products/nike-4-1776c90ead.jpg"
+      "images/products/nike-777-1-629ad28803.jpg"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-07-06T15:50:57.698906"
+    "createdAt": "2026-06-14T22:31:54.202208",
+    "section": "men",
+    "category": "Мужская обувь"
   },
   {
-    "id": "1783352209701",
-    "brand": "",
-    "name": "Nike",
-    "color": "",
-    "price": 160,
-    "section": "men",
-    "category": "Мужская обувь",
+    "id": "1781465267375",
+    "brand": "Evolution",
+    "name": "Evolution High",
+    "color": "brown",
+    "price": 700,
     "sizes": [
       "43",
-      "42",
-      "44"
+      "44",
+      "45"
     ],
     "sizeStock": {
-      "43": 2,
-      "42": 3,
-      "44": 1
+      "43": 1,
+      "44": 1,
+      "45": 1
     },
-    "description": "Для уточнения информации, обращайтесь к менеджеру.",
+    "description": "new shoesss",
     "images": [
-      "images/products/nike-1-58a519ff5c.jpg",
-      "images/products/nike-2-29ea8f231f.jpg",
-      "images/products/nike-3-165fefaa35.jpg",
-      "images/products/nike-4-d2ad37ee1f.jpg"
+      "images/products/maison-margiela-evolution-high-1-e97a1c25ca.jpg"
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-07-06T15:39:59.864735"
+    "createdAt": "2026-06-14T22:28:30.829082",
+    "section": "men",
+    "category": "Мужская обувь"
+  },
+  {
+    "id": "1781359871575",
+    "brand": "Nike",
+    "name": "nike air force 1",
+    "color": "black",
+    "price": 300,
+    "sizes": [
+      "43",
+      "44",
+      "45",
+      "42"
+    ],
+    "sizeStock": {
+      "43": 1,
+      "44": 1,
+      "45": 1,
+      "42": 1
+    },
+    "description": "new shpesss",
+    "images": [
+      "images/products/nike-nike-air-force-1-1-e21c732235.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-13T17:12:06.323778",
+    "section": "men",
+    "category": "Мужская обувь"
+  },
+  {
+    "id": "1781295156753",
+    "brand": "",
+    "name": "гггг",
+    "color": "ррр",
+    "price": 66,
+    "sizes": [
+      "43"
+    ],
+    "sizeStock": {
+      "43": 1
+    },
+    "description": "впар",
+    "images": [
+      "images/products/ppp-gggg-1-d80b12a2bd.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-06-12T23:13:04.409527",
+    "section": "men",
+    "category": "Мужская обувь"
   }
 ]
