@@ -1,0 +1,13 @@
+/* only the return icon */
+.snkr-v111-mini--return > .snkr-v111-icon--small{
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+}
+.snkr-v111-mini--return > .snkr-v111-icon--small svg{
+  width:22px!important;
+  height:22px!important;
+  display:block!important;
+  overflow:visible!important;
+  transform:none!important;
+}
