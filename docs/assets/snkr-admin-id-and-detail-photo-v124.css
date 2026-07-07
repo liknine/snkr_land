@@ -1,0 +1,129 @@
+/* v124 patch-only / JSON-safe
+   - Catalog card photos are restored to the V119 proportions.
+   - Open product card gallery photos are made larger.
+   - Admin product ID is rendered by JS.
+   - products.json / orders.json are not included and are not changed.
+   - Gallery swipe JS is not touched. */
+
+/* Catalog: keep the V119 card photo size and stop cards/photos from sticking together */
+.catalog-screen .products-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:36px 18px!important;
+  align-items:start!important;
+}
+.catalog-screen .product-card{
+  min-width:0!important;
+  overflow:visible!important;
+}
+.catalog-screen .product-card .product-media{
+  width:100%!important;
+  height:188px!important;
+  aspect-ratio:auto!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:0!important;
+  background:#fff!important;
+  overflow:hidden!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.catalog-screen .product-card .product-media img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:scale(1.08)!important;
+  transform-origin:center!important;
+}
+.catalog-screen .product-card .product-copy{
+  margin-top:14px!important;
+}
+
+/* Admin ID badge */
+.snkr-admin-product-id{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin:8px 0 0!important;
+  padding:4px 8px!important;
+  border-radius:999px!important;
+  background:rgba(0,0,0,.09)!important;
+  color:rgba(0,0,0,.74)!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  font-weight:760!important;
+  letter-spacing:-.015em!important;
+  white-space:nowrap!important;
+}
+.product-detail-screen .snkr-admin-product-id,
+.snkr-admin-product-id--detail{
+  margin:10px 0 4px!important;
+  padding:5px 10px!important;
+  font-size:11px!important;
+  background:rgba(0,0,0,.1)!important;
+}
+
+/* Open product card: make the gallery/photo area bigger only here */
+.product-detail-screen .product-detail-gallery{
+  position:relative!important;
+  width:calc(100% + 96px)!important;
+  height:clamp(470px,120vw,560px)!important;
+  margin:-10px -48px 26px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  background:#fff!important;
+}
+.product-detail-screen .product-gallery-track{
+  width:100%!important;
+  height:100%!important;
+}
+.product-detail-screen .product-gallery-slide{
+  flex:0 0 100%!important;
+  min-width:100%!important;
+  width:100%!important;
+  height:100%!important;
+  display:grid!important;
+  place-items:center!important;
+  background:#fff!important;
+}
+.product-detail-screen .product-gallery-slide img,
+.product-detail-screen .product-detail-gallery img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:translateZ(0) scale(1.02)!important;
+  transform-origin:center!important;
+  user-select:none!important;
+  -webkit-user-drag:none!important;
+  -webkit-touch-callout:none!important;
+}
+
+@media (max-width:374px){
+  .catalog-screen .products-grid{gap:32px 14px!important;}
+  .catalog-screen .product-card .product-media{height:172px!important;}
+  .product-detail-screen .product-detail-gallery{
+    width:calc(100% + 76px)!important;
+    height:clamp(420px,118vw,486px)!important;
+    margin:-8px -38px 24px!important;
+  }
+}
+@media (min-width:414px){
+  .catalog-screen .product-card .product-media{height:198px!important;}
+  .product-detail-screen .product-detail-gallery{
+    width:calc(100% + 108px)!important;
+    height:580px!important;
+    margin-left:-54px!important;
+    margin-right:-54px!important;
+  }
+}
