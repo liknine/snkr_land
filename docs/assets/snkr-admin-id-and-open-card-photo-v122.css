@@ -1,0 +1,109 @@
+/* v122 patch-only
+   - JSON files are not included and are not changed.
+   - Catalog photos are NOT enlarged here; spacing is normalized so cards/photos do not stick together.
+   - Open product card gallery photos are made bigger by CSS only. Gallery/swipe JS is untouched. */
+
+.catalog-screen .products-grid{
+  gap:34px 22px!important;
+  align-items:start!important;
+}
+
+.catalog-screen .product-card{
+  min-width:0!important;
+  overflow:visible!important;
+}
+
+.catalog-screen .product-card .product-media{
+  width:100%!important;
+  max-width:100%!important;
+  height:174px!important;
+  margin:0!important;
+  padding:0 4px!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:flex-end!important;
+  overflow:hidden!important;
+}
+
+.catalog-screen .product-card .product-media img{
+  width:100%!important;
+  max-width:100%!important;
+  height:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  transform:none!important;
+}
+
+.catalog-screen .product-card .product-copy{
+  margin-top:14px!important;
+}
+
+.snkr-admin-product-id{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin-top:8px!important;
+  padding:4px 8px!important;
+  border-radius:999px!important;
+  background:rgba(0,0,0,.08)!important;
+  color:rgba(0,0,0,.72)!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  font-weight:750!important;
+  letter-spacing:-.015em!important;
+  white-space:nowrap!important;
+}
+
+.product-detail-screen .product-detail-gallery{
+  width:calc(100% + 72px)!important;
+  height:clamp(430px,112vw,504px)!important;
+  margin:-8px -36px 24px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+}
+
+.product-detail-screen .product-gallery-track{
+  width:100%!important;
+  height:100%!important;
+}
+
+.product-detail-screen .product-gallery-slide{
+  height:100%!important;
+  min-height:100%!important;
+}
+
+.product-detail-screen .product-gallery-slide img,
+.product-detail-screen .product-detail-gallery img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
+
+@media (max-width:374px){
+  .catalog-screen .products-grid{gap:32px 16px!important;}
+  .catalog-screen .product-card .product-media{height:158px!important;padding:0 3px!important;}
+  .product-detail-screen .product-detail-gallery{
+    width:calc(100% + 56px)!important;
+    height:clamp(390px,112vw,438px)!important;
+    margin:-6px -28px 22px!important;
+  }
+}
+
+@media (min-width:414px){
+  .catalog-screen .products-grid{gap:36px 24px!important;}
+  .catalog-screen .product-card .product-media{height:186px!important;}
+  .product-detail-screen .product-detail-gallery{
+    width:calc(100% + 80px)!important;
+    height:520px!important;
+    margin-left:-40px!important;
+    margin-right:-40px!important;
+  }
+}
