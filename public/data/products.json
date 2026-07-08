@@ -1,5 +1,34 @@
 [
   {
+    "id": "1783534790894",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "41",
+      "42",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 1,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-1c7435f0d2.jpg",
+      "images/products/nike-2-d0b55491e2.jpg",
+      "images/products/nike-3-cc363b2b1b.jpg",
+      "images/products/nike-4-acec107218.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-08T18:21:28.625743"
+  },
+  {
     "id": "1783534240623",
     "brand": "",
     "name": "Nike",
