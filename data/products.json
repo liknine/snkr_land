@@ -1,5 +1,35 @@
 [
   {
+    "id": "1783535632464",
+    "brand": "",
+    "name": "Reebok",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "sizeStock": {
+      "38": 1,
+      "39": 2,
+      "40": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/reebok-1-236ea41eab.jpg",
+      "images/products/reebok-2-04775b1e5e.jpg",
+      "images/products/reebok-3-297a4b3117.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-08T18:36:57.298772"
+  },
+  {
     "id": "1783534953684",
     "brand": "",
     "name": "Nike",
