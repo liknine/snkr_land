@@ -1,5 +1,31 @@
 [
   {
+    "id": "1783535977514",
+    "brand": "",
+    "name": "Saucony",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "41",
+      "44"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "44": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/saucony-1-3ef0899c88.jpg",
+      "images/products/saucony-2-6dd937dc1c.jpg",
+      "images/products/saucony-3-030bca0d8c.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-08T18:41:47.296813"
+  },
+  {
     "id": "1783535632464",
     "brand": "",
     "name": "Reebok",
