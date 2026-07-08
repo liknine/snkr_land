@@ -1,5 +1,35 @@
 [
   {
+    "id": "1783533685007",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "36",
+      "37",
+      "40",
+      "41"
+    ],
+    "sizeStock": {
+      "36": 2,
+      "37": 2,
+      "40": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-472ae9fc71.jpg",
+      "images/products/nike-2-24a76e0de6.jpg",
+      "images/products/nike-3-90e9c27c95.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-08T18:09:20.897878"
+  },
+  {
     "id": "1783533192927",
     "brand": "",
     "name": "Off-White",
