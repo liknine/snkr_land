@@ -1,5 +1,37 @@
 [
   {
+    "id": "1783533192927",
+    "brand": "",
+    "name": "Off-White",
+    "color": "",
+    "price": 180,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "37",
+      "38",
+      "40",
+      "41"
+    ],
+    "sizeStock": {
+      "37": 1,
+      "38": 1,
+      "40": 1,
+      "41": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/off-white-1-8a47952b59.jpg",
+      "images/products/off-white-2-3c9f278d0d.jpg",
+      "images/products/off-white-3-d900d9da06.jpg",
+      "images/products/off-white-4-be57986419.jpg",
+      "images/products/off-white-5-8b6620454a.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-08T17:56:53.180556"
+  },
+  {
     "id": "1783532940370",
     "brand": "",
     "name": "Nike",
