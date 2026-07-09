@@ -1,0 +1,19 @@
+/* V131 patch-only / JSON-safe
+   Goal: disable photo zoom/pinch without changing gallery swipe logic.
+   No products/orders JSON files are included or changed. */
+
+/* Allow normal one-finger panning/swiping, but do not expose pinch zoom on photo areas. */
+.product-detail-screen .product-detail-gallery,
+.product-detail-screen .product-gallery-track,
+.product-detail-screen .product-gallery-slide,
+.product-detail-screen .product-gallery-slide img,
+.product-detail-screen .product-detail-gallery img,
+.gallery,
+.gallery img {
+  touch-action: pan-x pan-y;
+  -ms-touch-action: pan-x pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
