@@ -1,5 +1,35 @@
 [
   {
+    "id": "1783794597710",
+    "brand": "",
+    "name": "Mike",
+    "color": "",
+    "price": 130,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "41",
+      "42",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/mike-1-0ab912b40b.png",
+      "images/products/mike-2-6a0a676033.png",
+      "images/products/mike-3-283f4fa3c8.png"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-11T18:32:57.793779"
+  },
+  {
     "id": "1783793897670",
     "brand": "",
     "name": "Asics",
