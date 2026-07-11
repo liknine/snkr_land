@@ -1,5 +1,35 @@
 [
   {
+    "id": "1783794938527",
+    "brand": "",
+    "name": "cloudswift",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "41",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "43": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/cloudswift-1-8712223ccd.png",
+      "images/products/cloudswift-2-d63a81a594.png",
+      "images/products/cloudswift-3-6fafcad0c5.png"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-11T18:38:59.623885"
+  },
+  {
     "id": "1783794597710",
     "brand": "",
     "name": "Nike",
