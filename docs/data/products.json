@@ -1,5 +1,30 @@
 [
   {
+    "id": "1783792964448",
+    "brand": "",
+    "name": "Test",
+    "color": "",
+    "price": 99,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "41"
+    ],
+    "sizeStock": {
+      "41": 1
+    },
+    "description": "7:63",
+    "images": [
+      "images/products/test-1-981ec3671e.png",
+      "images/products/test-2-e54a8b30c1.png",
+      "images/products/test-3-cbf62ab752.png",
+      "images/products/test-4-355fbc380b.png"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-11T18:05:19.395172"
+  },
+  {
     "id": "1783536318813",
     "brand": "",
     "name": "Saucony",
