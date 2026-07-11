@@ -1,5 +1,35 @@
 [
   {
+    "id": "1783793647131",
+    "brand": "",
+    "name": "Asics",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "37",
+      "38",
+      "41"
+    ],
+    "sizeStock": {
+      "37": 3,
+      "38": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/asics-1-88754687ff.png",
+      "images/products/asics-2-5222ff491b.png",
+      "images/products/asics-3-f0e6bb12fa.png",
+      "images/products/asics-4-dd04965757.png",
+      "images/products/asics-5-af6d37f01d.png"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-11T18:17:29.584269"
+  },
+  {
     "id": "1783793162898",
     "brand": "",
     "name": "Nike",
