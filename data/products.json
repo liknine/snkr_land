@@ -1,5 +1,36 @@
 [
   {
+    "id": "1783793162898",
+    "brand": "",
+    "name": "По всем вопросам обращайтесь к менеджеру.",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "37",
+      "38",
+      "40",
+      "41"
+    ],
+    "sizeStock": {
+      "37": 2,
+      "38": 1,
+      "40": 1,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/po-vsem-voprosam-obraschaytes-k-menedzheru-1-e499227f3b.jpg",
+      "images/products/po-vsem-voprosam-obraschaytes-k-menedzheru-2-09a228ec40.jpg",
+      "images/products/po-vsem-voprosam-obraschaytes-k-menedzheru-3-737608de74.jpg",
+      "images/products/po-vsem-voprosam-obraschaytes-k-menedzheru-4-fca2de308f.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-11T18:07:29.778256"
+  },
+  {
     "id": "1783792964448",
     "brand": "",
     "name": "Test",
