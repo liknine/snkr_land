@@ -1,5 +1,51 @@
 [
   {
+    "id": "1784030750405",
+    "brand": "",
+    "name": "test A",
+    "color": "",
+    "price": 700,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "40",
+      "41"
+    ],
+    "sizeStock": {
+      "40": 3,
+      "41": 2
+    },
+    "description": "",
+    "images": [
+      "images/products/test-a-1-606ae4035f.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-14T12:06:14+00:00"
+  },
+  {
+    "id": "1784030750406",
+    "brand": "",
+    "name": "test B",
+    "color": "",
+    "price": 800,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "42"
+    ],
+    "sizeStock": {
+      "42": 2
+    },
+    "description": "",
+    "images": [
+      "images/products/test-b-2-caa7d8b1df.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-14T12:06:14+00:00"
+  },
+  {
     "id": "1784024811622",
     "brand": "",
     "name": "Golden Goose",
