@@ -1,5 +1,29 @@
 [
   {
+    "id": "1784490297857",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 200,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "42",
+      "43"
+    ],
+    "sizeStock": {
+      "42": 2,
+      "43": 3
+    },
+    "description": "",
+    "images": [
+      "images/products/nike-1-8009d92337.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-19T19:44:57+00:00"
+  },
+  {
     "id": "1784030750405",
     "brand": "",
     "name": "test A",
