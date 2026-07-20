@@ -1,5 +1,27 @@
 [
   {
+    "id": "1784573281884",
+    "brand": "",
+    "name": "Asics",
+    "color": "",
+    "price": 250,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "43"
+    ],
+    "sizeStock": {
+      "43": 3
+    },
+    "description": "HH",
+    "images": [
+      "images/products/asics-1-ddd69e7b92.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-20T18:48:50.719260"
+  },
+  {
     "id": "1784490297857",
     "brand": "",
     "name": "Nike",
