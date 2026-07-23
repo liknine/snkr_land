@@ -1,5 +1,33 @@
 [
   {
+    "id": "1784826143020",
+    "brand": "",
+    "name": "Golden Goose",
+    "color": "",
+    "price": 300,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 1,
+      "44": 5
+    },
+    "description": "",
+    "images": [
+      "images/products/golden-goose-1-9f60ff9fa0.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-23T17:04:12+00:00"
+  },
+  {
     "id": "1784573281884",
     "brand": "",
     "name": "Asics",
