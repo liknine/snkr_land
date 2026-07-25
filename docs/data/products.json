@@ -1,5 +1,29 @@
 [
   {
+    "id": "1785003351411",
+    "brand": "",
+    "name": "Maison Margiela",
+    "color": "",
+    "price": 300,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "43",
+      "44"
+    ],
+    "sizeStock": {
+      "43": 3,
+      "44": 1
+    },
+    "description": "",
+    "images": [
+      "images/products/maison-margiela-1-79444bdc93.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-25T18:16:00+00:00"
+  },
+  {
     "id": "1785003207262",
     "brand": "",
     "name": "Maison Margiela",
