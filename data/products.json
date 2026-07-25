@@ -1,5 +1,27 @@
 [
   {
+    "id": "1784973482257",
+    "brand": "",
+    "name": "Raf Simons",
+    "color": "",
+    "price": 245,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "43"
+    ],
+    "sizeStock": {
+      "43": 2
+    },
+    "description": "",
+    "images": [
+      "images/products/raf-simons-1-82275deb43.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-25T09:58:13+00:00"
+  },
+  {
     "id": "1784826143020",
     "brand": "",
     "name": "Golden Goose",
