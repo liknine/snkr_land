@@ -1,5 +1,29 @@
 [
   {
+    "id": "1785003819187",
+    "brand": "",
+    "name": "Balenciaga runner",
+    "color": "",
+    "price": 700,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "42",
+      "43"
+    ],
+    "sizeStock": {
+      "42": 2,
+      "43": 1
+    },
+    "description": "",
+    "images": [
+      "images/products/balenciaga-runner-1-c8bc1adcb6.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-25T18:23:49+00:00"
+  },
+  {
     "id": "1785003351411",
     "brand": "",
     "name": "Maison Margiela",
