@@ -1,5 +1,31 @@
 [
   {
+    "id": "1785068124251",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 200,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "44",
+      "43",
+      "45"
+    ],
+    "sizeStock": {
+      "44": 2,
+      "43": 2,
+      "45": 1
+    },
+    "description": "",
+    "images": [
+      "images/products/nike-1-892dc4c553.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-26T12:15:35+00:00"
+  },
+  {
     "id": "1785067831583",
     "brand": "",
     "name": "Dior",
