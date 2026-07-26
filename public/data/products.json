@@ -26,30 +26,6 @@
     "createdAt": "2026-07-26T12:15:35+00:00"
   },
   {
-    "id": "1785067831583",
-    "brand": "",
-    "name": "Dior",
-    "color": "",
-    "price": 200,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "41",
-      "44"
-    ],
-    "sizeStock": {
-      "41": 2,
-      "44": 1
-    },
-    "description": "",
-    "images": [
-      "images/products/dior-1-ac253f9d3e.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-26T12:11:20+00:00"
-  },
-  {
     "id": "1785003819187",
     "brand": "",
     "name": "Balenciaga runner",
