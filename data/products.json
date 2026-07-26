@@ -1,5 +1,27 @@
 [
   {
+    "id": "1785090779588",
+    "brand": "",
+    "name": "Дополнение к фотографии: balenciaga runner",
+    "color": "",
+    "price": 700,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "43"
+    ],
+    "sizeStock": {
+      "43": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/dopolnenie-k-fotografii-balenciaga-runner-1-4a3826d9f4.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-26T18:33:05+00:00"
+  },
+  {
     "id": "1785068124251",
     "brand": "",
     "name": "Nike",
