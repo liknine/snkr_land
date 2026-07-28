@@ -50,30 +50,6 @@
     "createdAt": "2026-07-27T10:27:20+00:00"
   },
   {
-    "id": "1785092118575",
-    "brand": "",
-    "name": "Balenciaga runner",
-    "color": "",
-    "price": 500,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "43",
-      "41"
-    ],
-    "sizeStock": {
-      "43": 0,
-      "41": 2
-    },
-    "description": "По всем вопросам обращайтесь к менеджеру.",
-    "images": [
-      "images/products/balenciaga-runner-1-773163447f.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-26T18:55:26+00:00"
-  },
-  {
     "id": "1785068124251",
     "brand": "",
     "name": "Nike",
