@@ -162,28 +162,6 @@
     "createdAt": "2026-07-14T10:27:09+00:00"
   },
   {
-    "id": "1784024811623",
-    "brand": "",
-    "name": "Asics",
-    "color": "",
-    "price": 170,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "40"
-    ],
-    "sizeStock": {
-      "40": 1
-    },
-    "description": "",
-    "images": [
-      "images/products/asics-2-dc36759be7.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-14T10:27:09+00:00"
-  },
-  {
     "id": "1783794938527",
     "brand": "",
     "name": "cloudswift",
