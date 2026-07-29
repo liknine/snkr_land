@@ -1,5 +1,39 @@
 [
   {
+    "id": "1785336802616",
+    "brand": "",
+    "name": "в каталог Dior",
+    "color": "",
+    "price": 200,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 1,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/v-katalog-dior-1-ab93694122.jpg",
+      "images/products/v-katalog-dior-2-717239054a.jpg",
+      "images/products/v-katalog-dior-3-4a26c1e267.jpg",
+      "images/products/v-katalog-dior-4-d8a3304006.jpg",
+      "images/products/v-katalog-dior-5-ac253f9d3e.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-29T14:54:26+00:00"
+  },
+  {
     "id": "1785148144829",
     "brand": "",
     "name": "Nike",
