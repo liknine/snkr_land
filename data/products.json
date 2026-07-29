@@ -140,38 +140,6 @@
     "createdAt": "2026-07-23T17:04:12+00:00"
   },
   {
-    "id": "1784024811622",
-    "brand": "",
-    "name": "Golden Goose",
-    "color": "",
-    "price": 170,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "36",
-      "37",
-      "38",
-      "39",
-      "40",
-      "41"
-    ],
-    "sizeStock": {
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1
-    },
-    "description": "",
-    "images": [
-      "images/products/golden-goose-1-569574d98c.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-14T10:27:09+00:00"
-  },
-  {
     "id": "1783794938527",
     "brand": "",
     "name": "cloudswift",
