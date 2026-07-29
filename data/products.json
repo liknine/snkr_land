@@ -1,5 +1,36 @@
 [
   {
+    "id": "1785361831655",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 170,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "39",
+      "36",
+      "38",
+      "41",
+      "40"
+    ],
+    "sizeStock": {
+      "39": 2,
+      "36": 1,
+      "38": 2,
+      "41": 1,
+      "40": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-f6c6a456c6.jpg",
+      "images/products/nike-2-095b3c2958.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-29T21:50:45+00:00"
+  },
+  {
     "id": "1785361241330",
     "brand": "",
     "name": "Maison-Margiela",
