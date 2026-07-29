@@ -110,30 +110,6 @@
     "createdAt": "2026-07-26T12:15:35+00:00"
   },
   {
-    "id": "1785003819187",
-    "brand": "",
-    "name": "Balenciaga runner",
-    "color": "",
-    "price": 700,
-    "section": "men",
-    "category": "Мужская обувь",
-    "sizes": [
-      "42",
-      "43"
-    ],
-    "sizeStock": {
-      "42": 2,
-      "43": 0
-    },
-    "description": "",
-    "images": [
-      "images/products/balenciaga-runner-1-c8bc1adcb6.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-25T18:23:49+00:00"
-  },
-  {
     "id": "1784826143020",
     "brand": "",
     "name": "Golden Goose",
