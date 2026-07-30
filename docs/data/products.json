@@ -1,5 +1,38 @@
 [
   {
+    "id": "1785421383644",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 160,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "42",
+      "45",
+      "41",
+      "44",
+      "43"
+    ],
+    "sizeStock": {
+      "42": 1,
+      "45": 1,
+      "41": 2,
+      "44": 2,
+      "43": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-76ca7e8a44.jpg",
+      "images/products/nike-2-3ca7172def.jpg",
+      "images/products/nike-3-c942c32af0.jpg",
+      "images/products/nike-4-20e038e07f.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-30T14:23:51+00:00"
+  },
+  {
     "id": "1785363276982",
     "brand": "",
     "name": "Dior",
