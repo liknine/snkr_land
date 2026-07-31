@@ -1,5 +1,37 @@
 [
   {
+    "id": "1785492885226",
+    "brand": "",
+    "name": "Valentino",
+    "color": "",
+    "price": 220,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "38",
+      "41",
+      "39",
+      "40",
+      "37"
+    ],
+    "sizeStock": {
+      "38": 2,
+      "41": 1,
+      "39": 2,
+      "40": 1,
+      "37": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/valentino-1-9c0532f12f.jpg",
+      "images/products/valentino-2-d5e51c0f27.jpg",
+      "images/products/valentino-3-10ff462afe.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-07-31T10:15:45+00:00"
+  },
+  {
     "id": "1785492491158",
     "brand": "",
     "name": "Nike",
