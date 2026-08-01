@@ -1,5 +1,32 @@
 [
   {
+    "id": "1785595707666",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "sizes": [
+      "41",
+      "39",
+      "40"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "39": 4,
+      "40": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-b7f27c1934.jpg",
+      "images/products/nike-2-e4a744c6c8.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-01T14:48:41+00:00"
+  },
+  {
     "id": "1785593322816",
     "brand": "",
     "name": "Nike",
