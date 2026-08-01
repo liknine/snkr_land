@@ -1,5 +1,37 @@
 [
   {
+    "id": "1785593322816",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 170,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "44",
+      "42",
+      "45",
+      "43",
+      "41"
+    ],
+    "sizeStock": {
+      "44": 2,
+      "42": 2,
+      "45": 1,
+      "43": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-3327fb98e8.jpg",
+      "images/products/nike-2-51180cc85f.jpg",
+      "images/products/nike-3-56f8c1d7f4.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-01T14:09:04+00:00"
+  },
+  {
     "id": "1785592489809",
     "brand": "",
     "name": "Numeris",
