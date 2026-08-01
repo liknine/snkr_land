@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "v99";
+  const VERSION = "v100";
   const SECTIONS = [
     { id: "men", label: "Мужская обувь" },
     { id: "women", label: "Женская обувь" },
@@ -8,7 +8,7 @@
   ];
   const ALL_SECTION = "all";
   const DEFAULT_PRODUCT_SECTION = "men";
-  const STORAGE_KEY = "snkr_catalog_section_v99";
+  const STORAGE_KEY = "snkr_catalog_section_v100";
   const SECTION_BY_ID = Object.fromEntries(SECTIONS.map((item) => [item.id, item]));
   const LABEL_BY_ID = { all: "Все товары", ...Object.fromEntries(SECTIONS.map((item) => [item.id, item.label])) };
   const textToSection = new Map([
@@ -67,7 +67,11 @@
     products.forEach((product) => {
       if (product?.id != null) state.productById.set(String(product.id), product);
       const images = Array.isArray(product?.images) ? product.images : [];
-      images.forEach((src) => imageKeys(src).forEach((key) => state.productByImage.set(key, product)));
+      images.forEach((src) => imageKeys(src).forEach((key) => {
+        const candidates = state.productByImage.get(key) || [];
+        candidates.push(product);
+        state.productByImage.set(key, candidates);
+      }));
     });
   }
 
@@ -92,8 +96,8 @@
     return /\/api\/products(?:\?|$)/.test(url) || /\/data\/products\.json(?:\?|$)/.test(url);
   }
 
-  if (typeof window.fetch === "function" && !window.__snkrSideSectionsFetchPatchedV99) {
-    window.__snkrSideSectionsFetchPatchedV99 = true;
+  if (typeof window.fetch === "function" && !window.__snkrSideSectionsFetchPatchedV100) {
+    window.__snkrSideSectionsFetchPatchedV100 = true;
     const nativeFetch = window.fetch.bind(window);
     window.fetch = async (...args) => {
       const response = await nativeFetch(...args);
@@ -142,28 +146,48 @@
       .filter(Boolean);
   }
 
-  function findProductForCard(card, index) {
-    const savedSection = card.getAttribute("data-snkr-section");
-    if (savedSection && SECTION_BY_ID[savedSection]) return { section: savedSection };
-
+  function findProductForCard(card) {
     const productId = card.getAttribute("data-product-id") || card.dataset.productId;
-    if (productId && state.productById.has(String(productId))) return state.productById.get(String(productId));
+    if (productId && state.productById.has(String(productId))) {
+      return state.productById.get(String(productId));
+    }
 
+    const savedSection = normalizeText(card.getAttribute("data-snkr-section"));
     for (const key of cardImagePaths(card)) {
-      const product = state.productByImage.get(key);
-      if (product) return product;
+      const candidates = state.productByImage.get(key) || [];
+      if (candidates.length === 1) return candidates[0];
+      if (savedSection && SECTION_BY_ID[savedSection]) {
+        const sectionMatches = candidates.filter((product) => normalizeSection(product?.section || product?.category) === savedSection);
+        if (sectionMatches.length === 1) return sectionMatches[0];
+      }
     }
 
     const text = normalizeText(card.textContent);
     if (text && state.products.length) {
-      const match = state.products.find((product) => {
+      const matches = state.products.filter((product) => {
         const name = normalizeText(product?.name);
         return name && text.includes(name);
       });
-      if (match) return match;
+      if (matches.length === 1) return matches[0];
+      if (savedSection && SECTION_BY_ID[savedSection]) {
+        const sectionMatches = matches.filter((product) => normalizeSection(product?.section || product?.category) === savedSection);
+        if (sectionMatches.length === 1) return sectionMatches[0];
+      }
     }
 
-    return state.products[index] || null;
+    return null;
+  }
+
+  function isMainCatalogProduct(product) {
+    if (!product) return false;
+    const section = normalizeSection(product.section || product.category);
+    return section === DEFAULT_PRODUCT_SECTION && product.mainCatalogVisible !== false;
+  }
+
+  function shouldShowProduct(activeSection, product) {
+    if (!product) return false;
+    const section = normalizeSection(product.section || product.category);
+    return activeSection === ALL_SECTION ? isMainCatalogProduct(product) : section === activeSection;
   }
 
   function getCards() {
@@ -179,7 +203,7 @@
       empty.innerHTML = "<h2>В этом разделе пока нет товаров</h2><p>Когда админ добавит товар в этот раздел, он появится здесь.</p>";
       grid.insertAdjacentElement("afterend", empty);
     }
-    empty.hidden = visibleCount !== 0 || activeSection === ALL_SECTION;
+    empty.hidden = visibleCount !== 0;
   }
 
   function applySectionFilter(force = false) {
@@ -195,14 +219,16 @@
       const active = getActiveSection();
       document.documentElement.dataset.snkrCatalogSection = active;
       let visibleCount = 0;
-      getCards().forEach((card, index) => {
-        const product = findProductForCard(card, index);
-        const section = normalizeSection(product?.section || product?.category);
+      getCards().forEach((card) => {
+        const product = findProductForCard(card);
+        const section = normalizeSection(product?.section || product?.category || card.getAttribute("data-snkr-section"));
         card.setAttribute("data-snkr-section", section);
-        const show = active === ALL_SECTION || section === active;
+        const show = shouldShowProduct(active, product);
         if (card.classList.contains("snkr-hidden-by-section") === show) {
           card.classList.toggle("snkr-hidden-by-section", !show);
         }
+        card.hidden = !show;
+        card.style.display = show ? "" : "none";
         card.setAttribute("aria-hidden", show ? "false" : "true");
         if (show) visibleCount += 1;
       });
@@ -267,8 +293,8 @@
   }
 
   function interceptSideMenuFilterClicks() {
-    if (document.__snkrSideMenuFilterClicksV99) return;
-    document.__snkrSideMenuFilterClicksV99 = true;
+    if (document.__snkrSideMenuFilterClicksV100) return;
+    document.__snkrSideMenuFilterClicksV100 = true;
     document.addEventListener("click", (event) => {
       const row = event.target?.closest?.(".side-menu-list .side-menu-row");
       if (!row) return;
@@ -285,8 +311,8 @@
   }
 
   function interceptBottomCatalogReset() {
-    if (document.__snkrBottomCatalogResetV99) return;
-    document.__snkrBottomCatalogResetV99 = true;
+    if (document.__snkrBottomCatalogResetV100) return;
+    document.__snkrBottomCatalogResetV100 = true;
     document.addEventListener("click", (event) => {
       const button = event.target?.closest?.(".bottom-nav-item");
       if (!button || !normalizeText(button.textContent).includes("каталог")) return;
@@ -343,5 +369,8 @@
     getActiveSection,
     normalizeProductsPayload,
     applySectionFilter,
+    findProductForCard,
+    isMainCatalogProduct,
+    shouldShowProduct,
   };
 })();
