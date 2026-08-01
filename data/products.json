@@ -1,5 +1,39 @@
 [
   {
+    "id": "1785600824521",
+    "brand": "",
+    "name": "Saucony",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "42",
+      "45",
+      "43",
+      "44",
+      "41"
+    ],
+    "sizeStock": {
+      "42": 2,
+      "45": 1,
+      "43": 1,
+      "44": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/saucony-1-8114e707a8.jpg",
+      "images/products/saucony-2-1fd053c3dd.jpg",
+      "images/products/saucony-3-54048fef98.jpg",
+      "images/products/saucony-4-844acb29d2.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-01T16:14:20+00:00"
+  },
+  {
     "id": "1785599711305",
     "brand": "",
     "name": "Nike",
@@ -7,6 +41,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "37",
       "36",
@@ -35,6 +70,7 @@
     "price": 170,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "41",
       "40",
@@ -65,6 +101,7 @@
     "price": 170,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "38",
       "40",
@@ -97,6 +134,7 @@
     "price": 160,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "42",
       "45",
@@ -130,6 +168,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "41",
       "39",
@@ -157,6 +196,7 @@
     "price": 170,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "44",
       "42",
@@ -189,6 +229,7 @@
     "price": 220,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "38",
       "37",
@@ -221,6 +262,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "41",
       "39",
@@ -253,6 +295,7 @@
     "price": 160,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "46",
       "41",
@@ -285,6 +328,7 @@
     "price": 170,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "40",
       "38",
@@ -317,6 +361,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "44",
       "41",
@@ -347,6 +392,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "42",
       "43",
@@ -384,6 +430,7 @@
     "price": 220,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "38",
       "41",
@@ -416,6 +463,7 @@
     "price": 170,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "36",
       "37",
@@ -449,6 +497,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "37",
       "40",
@@ -481,6 +530,7 @@
     "price": 180,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "41",
       "40",
@@ -511,6 +561,7 @@
     "price": 160,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "42",
       "45",
@@ -544,6 +595,7 @@
     "price": 200,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "39",
       "40",
@@ -574,6 +626,7 @@
     "price": 180,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "40",
       "41",
@@ -602,6 +655,7 @@
     "price": 220,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "44",
       "45",
@@ -633,6 +687,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "44",
       "43",
@@ -665,6 +720,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "44",
       "43",
@@ -698,6 +754,7 @@
     "price": 170,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "39",
       "36",
@@ -729,6 +786,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "42",
       "44",
@@ -761,6 +819,7 @@
     "price": 170,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -794,6 +853,7 @@
     "price": 200,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -828,6 +888,7 @@
     "price": 170,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "44",
       "43",
@@ -856,6 +917,7 @@
     "price": 200,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -886,6 +948,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "43",
@@ -916,6 +979,7 @@
     "price": 130,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -946,6 +1010,7 @@
     "price": 170,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -977,6 +1042,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "37",
       "38",
@@ -1007,6 +1073,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "37",
       "38",
@@ -1038,6 +1105,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "44"
@@ -1064,6 +1132,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "38",
       "39",
@@ -1094,6 +1163,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -1122,6 +1192,7 @@
     "price": 180,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -1151,6 +1222,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "36",
       "37",
@@ -1186,6 +1258,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "36",
       "37",
@@ -1216,6 +1289,7 @@
     "price": 180,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "37",
       "38",
@@ -1248,6 +1322,7 @@
     "price": 160,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -1280,6 +1355,7 @@
     "price": 220,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "41",
       "42",
@@ -1310,6 +1386,7 @@
     "price": 160,
     "section": "women",
     "category": "Женская обувь",
+    "mainCatalogVisible": false,
     "sizes": [
       "37",
       "38",
@@ -1338,6 +1415,7 @@
     "price": 170,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "42",
       "43",
@@ -1367,6 +1445,7 @@
     "price": 160,
     "section": "men",
     "category": "Мужская обувь",
+    "mainCatalogVisible": true,
     "sizes": [
       "43",
       "42",
