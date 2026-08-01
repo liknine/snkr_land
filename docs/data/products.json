@@ -1,5 +1,42 @@
 [
   {
+    "id": "1785588279289",
+    "brand": "",
+    "name": "Under-Armour",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "sizes": [
+      "42",
+      "43",
+      "44",
+      "41"
+    ],
+    "sizeStock": {
+      "42": 3,
+      "43": 2,
+      "44": 2,
+      "41": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/under-armour-1-64ded50e6e.jpg",
+      "images/products/under-armour-2-0ccff03f3c.jpg",
+      "images/products/under-armour-3-d462777366.jpg",
+      "images/products/under-armour-4-bba94ea7d2.jpg",
+      "images/products/under-armour-5-8f2694f73b.jpg",
+      "images/products/under-armour-6-e80283c886.jpg",
+      "images/products/under-armour-7-b0ba05280d.jpg",
+      "images/products/under-armour-8-c55d785af9.jpg",
+      "images/products/under-armour-9-cb22aa8dc2.jpg",
+      "images/products/under-armour-10-5eeda77bca.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-01T12:45:59+00:00"
+  },
+  {
     "id": "1785492885226",
     "brand": "",
     "name": "Valentino",
