@@ -1,5 +1,37 @@
 [
   {
+    "id": "1785602801104",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 170,
+    "section": "women",
+    "category": "Женская обувь",
+    "mainCatalogVisible": false,
+    "sizes": [
+      "38",
+      "40",
+      "39",
+      "41"
+    ],
+    "sizeStock": {
+      "38": 2,
+      "40": 2,
+      "39": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-9fccd7c10d.jpg",
+      "images/products/nike-2-6d70f41d3e.jpg",
+      "images/products/nike-3-9adfb3af3e.jpg",
+      "images/products/nike-4-fde51a9b30.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-01T16:47:08+00:00"
+  },
+  {
     "id": "1785601677704",
     "brand": "",
     "name": "Air-Jordan",
