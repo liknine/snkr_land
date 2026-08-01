@@ -120,7 +120,8 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-08-01T14:56:06+00:00"
+    "createdAt": "2026-08-01T14:56:06+00:00",
+    "mainCatalogVisible": true
   },
   {
     "id": "1785595707666",
@@ -147,7 +148,8 @@
     ],
     "isFavorite": false,
     "isActive": true,
-    "createdAt": "2026-08-01T14:48:41+00:00"
+    "createdAt": "2026-08-01T14:48:41+00:00",
+    "mainCatalogVisible": false
   },
   {
     "id": "1785593322816",

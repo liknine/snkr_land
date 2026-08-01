@@ -1,6 +1,94 @@
 <!doctype html>
 <html lang="ru">
   <head>
+  <script id="stage47-main-catalog-men-only">
+  /* STAGE47_MAIN_CATALOG_MEN_ONLY
+   * The client-facing catalog must not expose women-section stock in the main shop.
+   * The production catalog itself remains complete; only browser reads of products.json
+   * are filtered. This survives future catalog publications because no compiled bundle is
+   * modified and the hook is installed before the application scripts execute.
+   */
+  (function () {
+    'use strict';
+    if (window.__stage47MainCatalogMenOnlyInstalled) return;
+    window.__stage47MainCatalogMenOnlyInstalled = true;
+  
+    var originalFetch = window.fetch.bind(window);
+  
+    function normalizeSection(value) {
+      return String(value == null ? '' : value)
+        .trim()
+        .toLowerCase()
+        .replace(/ё/g, 'е')
+        .replace(/[._-]+/g, ' ')
+        .replace(/\s+/g, ' ');
+    }
+  
+    function isWomenProduct(product) {
+      if (!product || typeof product !== 'object') return false;
+      if (product.mainCatalogVisible === false || product.main_catalog_visible === false ||
+          String(product.mainCatalogVisible).toLowerCase() === 'false' ||
+          String(product.main_catalog_visible).toLowerCase() === 'false') return true;
+  
+      var values = [
+        product.section, product.catalogSection, product.catalog_section,
+        product.shoeSection, product.shoe_section, product.gender,
+        product.department, product.group, product.category
+      ];
+      return values.some(function (rawValue) {
+        var section = normalizeSection(rawValue);
+        return section === 'women' || section === 'woman' || section === 'female' ||
+          section === 'womens' || section === "women's" ||
+          section.indexOf('жен') !== -1;
+      });
+    }
+  
+    function isProductsJsonRequest(input) {
+      try {
+        var rawUrl = typeof input === 'string' ? input : (input && input.url) || '';
+        var url = new URL(rawUrl, window.location.href);
+        return /(?:^|\/)(?:data\/)?products\.json$/i.test(url.pathname);
+      } catch (error) {
+        return false;
+      }
+    }
+  
+    function filterPayload(payload) {
+      if (Array.isArray(payload)) {
+        return payload.filter(function (product) { return !isWomenProduct(product); });
+      }
+      if (payload && typeof payload === 'object' && Array.isArray(payload.products)) {
+        var copy = Object.assign({}, payload);
+        copy.products = payload.products.filter(function (product) { return !isWomenProduct(product); });
+        return copy;
+      }
+      return payload;
+    }
+  
+    window.fetch = async function () {
+      var args = Array.prototype.slice.call(arguments);
+      var response = await originalFetch.apply(window, args);
+      if (!response || !response.ok || !isProductsJsonRequest(args[0])) return response;
+  
+      try {
+        var payload = await response.clone().json();
+        var filtered = filterPayload(payload);
+        var headers = new Headers(response.headers || {});
+        headers.delete('content-length');
+        headers.delete('content-encoding');
+        if (!headers.get('content-type')) headers.set('content-type', 'application/json; charset=utf-8');
+        return new Response(JSON.stringify(filtered), {
+          status: response.status,
+          statusText: response.statusText,
+          headers: headers
+        });
+      } catch (error) {
+        console.warn('[Stage47] products.json visibility guard fallback', error);
+        return response;
+      }
+    };
+  })();
+  </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#fbfaf8" />
