@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "v101";
+  const VERSION = "v100";
   const SECTIONS = [
     { id: "men", label: "Мужская обувь" },
     { id: "women", label: "Женская обувь" },
@@ -8,7 +8,7 @@
   ];
   const ALL_SECTION = "all";
   const DEFAULT_PRODUCT_SECTION = "men";
-  const STORAGE_KEY = "snkr_catalog_section_v101";
+  const STORAGE_KEY = "snkr_catalog_section_v100";
   const SECTION_BY_ID = Object.fromEntries(SECTIONS.map((item) => [item.id, item]));
   const LABEL_BY_ID = { all: "Все товары", ...Object.fromEntries(SECTIONS.map((item) => [item.id, item.label])) };
   const textToSection = new Map([
@@ -96,8 +96,8 @@
     return /\/api\/products(?:\?|$)/.test(url) || /\/data\/products\.json(?:\?|$)/.test(url);
   }
 
-  if (typeof window.fetch === "function" && !window.__snkrSideSectionsFetchPatchedV101) {
-    window.__snkrSideSectionsFetchPatchedV101 = true;
+  if (typeof window.fetch === "function" && !window.__snkrSideSectionsFetchPatchedV100) {
+    window.__snkrSideSectionsFetchPatchedV100 = true;
     const nativeFetch = window.fetch.bind(window);
     window.fetch = async (...args) => {
       const response = await nativeFetch(...args);
@@ -184,33 +184,9 @@
     return section === DEFAULT_PRODUCT_SECTION && product.mainCatalogVisible !== false;
   }
 
-  function getActiveBrandFilter() {
-    const filterSections = Array.from(document.querySelectorAll(".filter-sheet .filter-section"));
-    const brandSection = filterSections.find((section) => {
-      const title = normalizeText(section.querySelector("h3")?.textContent);
-      return title === "бренд" || title === "название";
-    });
-    if (brandSection) {
-      const selected = brandSection.querySelector(".filter-choice.is-selected span");
-      const value = normalizeText(selected?.textContent);
-      return value && !["все товары", "все бренды", "все"].includes(value) ? value : "";
-    }
-
-    try {
-      return normalizeText(window.sessionStorage.getItem("snkr_catalog_name_filter"));
-    } catch {
-      return "";
-    }
-  }
-
-  function isBrandFilterActive() {
-    return Boolean(getActiveBrandFilter());
-  }
-
-  function shouldShowProduct(activeSection, product, brandFilterActive = isBrandFilterActive()) {
+  function shouldShowProduct(activeSection, product) {
     if (!product) return false;
     const section = normalizeSection(product.section || product.category);
-    if (brandFilterActive) return section === "men" || section === "women";
     return activeSection === ALL_SECTION ? isMainCatalogProduct(product) : section === activeSection;
   }
 
@@ -241,16 +217,13 @@
     state.applying = true;
     window.requestAnimationFrame(() => {
       const active = getActiveSection();
-      const brandFilter = getActiveBrandFilter();
-      const brandFilterActive = Boolean(brandFilter);
       document.documentElement.dataset.snkrCatalogSection = active;
-      document.documentElement.dataset.snkrBrandFilterActive = brandFilterActive ? "true" : "false";
       let visibleCount = 0;
       getCards().forEach((card) => {
         const product = findProductForCard(card);
         const section = normalizeSection(product?.section || product?.category || card.getAttribute("data-snkr-section"));
         card.setAttribute("data-snkr-section", section);
-        const show = shouldShowProduct(active, product, brandFilterActive);
+        const show = shouldShowProduct(active, product);
         if (card.classList.contains("snkr-hidden-by-section") === show) {
           card.classList.toggle("snkr-hidden-by-section", !show);
         }
@@ -262,7 +235,7 @@
       ensureEmptyState(document.querySelector(".catalog-screen .products-grid"), visibleCount, active);
       patchSideMenuRows();
       state.applying = false;
-      if (force) window.dispatchEvent(new CustomEvent("snkr:section-filter-applied", { detail: { active, visibleCount, brandFilter } }));
+      if (force) window.dispatchEvent(new CustomEvent("snkr:section-filter-applied", { detail: { active, visibleCount } }));
     });
   }
 
@@ -320,8 +293,8 @@
   }
 
   function interceptSideMenuFilterClicks() {
-    if (document.__snkrSideMenuFilterClicksV101) return;
-    document.__snkrSideMenuFilterClicksV101 = true;
+    if (document.__snkrSideMenuFilterClicksV100) return;
+    document.__snkrSideMenuFilterClicksV100 = true;
     document.addEventListener("click", (event) => {
       const row = event.target?.closest?.(".side-menu-list .side-menu-row");
       if (!row) return;
@@ -338,8 +311,8 @@
   }
 
   function interceptBottomCatalogReset() {
-    if (document.__snkrBottomCatalogResetV101) return;
-    document.__snkrBottomCatalogResetV101 = true;
+    if (document.__snkrBottomCatalogResetV100) return;
+    document.__snkrBottomCatalogResetV100 = true;
     document.addEventListener("click", (event) => {
       const button = event.target?.closest?.(".bottom-nav-item");
       if (!button || !normalizeText(button.textContent).includes("каталог")) return;
@@ -369,10 +342,6 @@
     if (state.observer) return;
     state.observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
-        if (mutation.type === "attributes" && mutation.target?.matches?.(".filter-choice")) {
-          queueDomPatch(true);
-          return;
-        }
         if (mutation.type === "childList") {
           const nodes = [...mutation.addedNodes, ...mutation.removedNodes];
           if (nodes.some((node) => node.nodeType === 1 && (node.matches?.(".product-card,.side-menu-list,.catalog-screen") || node.querySelector?.(".product-card,.side-menu-list,.catalog-screen")))) {
@@ -382,12 +351,7 @@
         }
       }
     });
-    state.observer.observe(document.body || document.documentElement, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["class"],
-    });
+    state.observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -407,8 +371,6 @@
     applySectionFilter,
     findProductForCard,
     isMainCatalogProduct,
-    getActiveBrandFilter,
-    isBrandFilterActive,
     shouldShowProduct,
   };
 })();
