@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "v101";
+  const VERSION = "v102";
   const SECTIONS = [
     { id: "men", label: "Мужская обувь" },
     { id: "women", label: "Женская обувь" },
@@ -8,7 +8,7 @@
   ];
   const ALL_SECTION = "all";
   const DEFAULT_PRODUCT_SECTION = "men";
-  const STORAGE_KEY = "snkr_catalog_section_v101";
+  const STORAGE_KEY = "snkr_catalog_section_v102";
   const SECTION_BY_ID = Object.fromEntries(SECTIONS.map((item) => [item.id, item]));
   const LABEL_BY_ID = { all: "Все товары", ...Object.fromEntries(SECTIONS.map((item) => [item.id, item.label])) };
   const textToSection = new Map([
@@ -96,8 +96,8 @@
     return /\/api\/products(?:\?|$)/.test(url) || /\/data\/products\.json(?:\?|$)/.test(url);
   }
 
-  if (typeof window.fetch === "function" && !window.__snkrSideSectionsFetchPatchedV101) {
-    window.__snkrSideSectionsFetchPatchedV101 = true;
+  if (typeof window.fetch === "function" && !window.__snkrSideSectionsFetchPatchedV102) {
+    window.__snkrSideSectionsFetchPatchedV102 = true;
     const nativeFetch = window.fetch.bind(window);
     window.fetch = async (...args) => {
       const response = await nativeFetch(...args);
@@ -210,8 +210,10 @@
   function shouldShowProduct(activeSection, product, brandFilterActive = isBrandFilterActive()) {
     if (!product) return false;
     const section = normalizeSection(product.section || product.category);
-    if (brandFilterActive) return section === "men" || section === "women";
-    return activeSection === ALL_SECTION ? isMainCatalogProduct(product) : section === activeSection;
+    if (activeSection === ALL_SECTION) {
+      return brandFilterActive ? section === "men" || section === "women" : isMainCatalogProduct(product);
+    }
+    return section === activeSection;
   }
 
   function getCards() {
@@ -320,8 +322,8 @@
   }
 
   function interceptSideMenuFilterClicks() {
-    if (document.__snkrSideMenuFilterClicksV101) return;
-    document.__snkrSideMenuFilterClicksV101 = true;
+    if (document.__snkrSideMenuFilterClicksV102) return;
+    document.__snkrSideMenuFilterClicksV102 = true;
     document.addEventListener("click", (event) => {
       const row = event.target?.closest?.(".side-menu-list .side-menu-row");
       if (!row) return;
@@ -338,8 +340,8 @@
   }
 
   function interceptBottomCatalogReset() {
-    if (document.__snkrBottomCatalogResetV101) return;
-    document.__snkrBottomCatalogResetV101 = true;
+    if (document.__snkrBottomCatalogResetV102) return;
+    document.__snkrBottomCatalogResetV102 = true;
     document.addEventListener("click", (event) => {
       const button = event.target?.closest?.(".bottom-nav-item");
       if (!button || !normalizeText(button.textContent).includes("каталог")) return;
