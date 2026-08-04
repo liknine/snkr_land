@@ -507,12 +507,10 @@
     "category": "Женская обувь",
     "mainCatalogVisible": false,
     "sizes": [
-      "38",
       "41",
       "40"
     ],
     "sizeStock": {
-      "38": 4,
       "41": 2,
       "40": 3
     },
