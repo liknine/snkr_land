@@ -510,13 +510,11 @@
     "mainCatalogVisible": false,
     "sizes": [
       "38",
-      "37",
       "41",
       "40"
     ],
     "sizeStock": {
       "38": 4,
-      "37": 2,
       "41": 2,
       "40": 3
     },
