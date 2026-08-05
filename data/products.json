@@ -1,5 +1,38 @@
 [
   {
+    "id": "1785947013260",
+    "brand": "",
+    "name": "Adidas",
+    "color": "",
+    "price": 180,
+    "section": "women",
+    "category": "Женская обувь",
+    "mainCatalogVisible": false,
+    "sizes": [
+      "40",
+      "41",
+      "38",
+      "37",
+      "39"
+    ],
+    "sizeStock": {
+      "40": 2,
+      "41": 1,
+      "38": 2,
+      "37": 1,
+      "39": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/adidas-1-d0f2d25ab2.jpg",
+      "images/products/adidas-2-c96ff66fd8.jpg",
+      "images/products/adidas-3-a5077de3de.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-05T16:24:32+00:00"
+  },
+  {
     "id": "1785946691203",
     "brand": "",
     "name": "Nike",
