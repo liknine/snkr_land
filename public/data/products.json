@@ -1,5 +1,35 @@
 [
   {
+    "id": "1785944762645",
+    "brand": "",
+    "name": "Numeris",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "43",
+      "41",
+      "42"
+    ],
+    "sizeStock": {
+      "43": 2,
+      "41": 1,
+      "42": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/numeris-1-7e8f03e006.jpg",
+      "images/products/numeris-2-83c32bbb26.jpg",
+      "images/products/numeris-3-afa1d2be52.jpg",
+      "images/products/numeris-4-904fea1c91.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-05T15:46:45+00:00"
+  },
+  {
     "id": "1785942660656",
     "brand": "",
     "name": "Prada",
