@@ -1,5 +1,34 @@
 [
   {
+    "id": "1785945068879",
+    "brand": "",
+    "name": "Asics",
+    "color": "",
+    "price": 170,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "42",
+      "44",
+      "41"
+    ],
+    "sizeStock": {
+      "42": 2,
+      "44": 2,
+      "41": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/asics-1-51dd1e1b08.jpg",
+      "images/products/asics-2-b10435031c.jpg",
+      "images/products/asics-3-927ea0bbbd.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-05T15:51:38+00:00"
+  },
+  {
     "id": "1785944811212",
     "brand": "",
     "name": "Numeris",
