@@ -973,13 +973,11 @@
     "mainCatalogVisible": true,
     "sizes": [
       "42",
-      "43",
       "44",
       "41"
     ],
     "sizeStock": {
       "42": 1,
-      "43": 1,
       "44": 1,
       "41": 2
     },
