@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786112458675",
+    "brand": "",
+    "name": "Golden-Goose",
+    "color": "",
+    "price": 200,
+    "section": "women",
+    "category": "Женская обувь",
+    "mainCatalogVisible": false,
+    "sizes": [
+      "38",
+      "36",
+      "39",
+      "40",
+      "37"
+    ],
+    "sizeStock": {
+      "38": 5,
+      "36": 4,
+      "39": 4,
+      "40": 2,
+      "37": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/golden-goose-1-2cba37841a.jpg",
+      "images/products/golden-goose-2-997ddcfb59.jpg",
+      "images/products/golden-goose-3-c7658686a0.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-07T14:21:35+00:00"
+  },
+  {
     "id": "1786111754257",
     "brand": "",
     "name": "Nike",
