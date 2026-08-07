@@ -1,5 +1,40 @@
 [
   {
+    "id": "1786135770620",
+    "brand": "",
+    "name": "Under-Armour",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "44",
+      "43",
+      "45",
+      "41",
+      "42"
+    ],
+    "sizeStock": {
+      "44": 2,
+      "43": 2,
+      "45": 1,
+      "41": 1,
+      "42": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/under-armour-1-c46b3b6e58.jpg",
+      "images/products/under-armour-2-ec47916518.jpg",
+      "images/products/under-armour-3-288fd06ab4.jpg",
+      "images/products/under-armour-4-8c66e05835.jpg",
+      "images/products/under-armour-5-3487325034.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-07T20:50:04+00:00"
+  },
+  {
     "id": "1786135723882",
     "brand": "",
     "name": "Under-Armour",
