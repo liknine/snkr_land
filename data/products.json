@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786123441078",
+    "brand": "",
+    "name": "Asics",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "44",
+      "45",
+      "42",
+      "41",
+      "43"
+    ],
+    "sizeStock": {
+      "44": 2,
+      "45": 1,
+      "42": 2,
+      "41": 1,
+      "43": 2
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/asics-1-db09dc0d8e.jpg",
+      "images/products/asics-2-04e96e066e.jpg",
+      "images/products/asics-3-474bbcbe4c.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-07T17:24:35+00:00"
+  },
+  {
     "id": "1786122687624",
     "brand": "",
     "name": "Under-Armour",
