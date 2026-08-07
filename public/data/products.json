@@ -1,5 +1,39 @@
 [
   {
+    "id": "1786121293044",
+    "brand": "",
+    "name": "Adidas",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "43",
+      "42",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 2,
+      "43": 2,
+      "42": 4,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/adidas-1-8be0f7d8f3.jpg",
+      "images/products/adidas-2-2a04b0fa52.jpg",
+      "images/products/adidas-3-a9d3e38296.jpg",
+      "images/products/adidas-4-f13489f599.jpg",
+      "images/products/adidas-5-6d4ae5b543.jpg",
+      "images/products/adidas-6-6365bcdb7d.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-07T16:48:53+00:00"
+  },
+  {
     "id": "1786120766460",
     "brand": "",
     "name": "Nike",
