@@ -1,5 +1,39 @@
 [
   {
+    "id": "1786111398406",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 170,
+    "section": "women",
+    "category": "Женская обувь",
+    "mainCatalogVisible": false,
+    "sizes": [
+      "37",
+      "39",
+      "38",
+      "40",
+      "36"
+    ],
+    "sizeStock": {
+      "37": 2,
+      "39": 2,
+      "38": 2,
+      "40": 1,
+      "36": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-0bae275139.jpg",
+      "images/products/nike-2-677b933d57.jpg",
+      "images/products/nike-3-d8ddc9d708.jpg",
+      "images/products/nike-4-9c13644654.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-07T14:03:31+00:00"
+  },
+  {
     "id": "1786111255349",
     "brand": "",
     "name": "Golden-Goose",
