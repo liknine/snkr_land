@@ -2404,37 +2404,6 @@
     "createdAt": "2026-07-08T17:51:44.252954"
   },
   {
-    "id": "1783355269494",
-    "brand": "",
-    "name": "Golden Goose",
-    "color": "",
-    "price": 220,
-    "section": "men",
-    "category": "Мужская обувь",
-    "mainCatalogVisible": true,
-    "sizes": [
-      "41",
-      "42",
-      "44"
-    ],
-    "sizeStock": {
-      "41": 1,
-      "42": 1,
-      "44": 2
-    },
-    "description": "По всем вопросам обращайтесь к менеджеру.",
-    "images": [
-      "images/products/golden-goose-1-09a9edb43e.jpg",
-      "images/products/golden-goose-2-5c3472e0cf.jpg",
-      "images/products/golden-goose-3-53322e64e1.jpg",
-      "images/products/golden-goose-4-a92c04078e.jpg",
-      "images/products/golden-goose-5-eb6f4a707f.jpg"
-    ],
-    "isFavorite": false,
-    "isActive": true,
-    "createdAt": "2026-07-06T16:31:33.844808"
-  },
-  {
     "id": "1783353165441",
     "brand": "",
     "name": "Nike",
