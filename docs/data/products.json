@@ -1,5 +1,40 @@
 [
   {
+    "id": "1786122687624",
+    "brand": "",
+    "name": "Under-Armour",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "44",
+      "42",
+      "41",
+      "45",
+      "43"
+    ],
+    "sizeStock": {
+      "44": 2,
+      "42": 3,
+      "41": 3,
+      "45": 1,
+      "43": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/under-armour-1-7b3faed693.jpg",
+      "images/products/under-armour-2-2ce123929b.jpg",
+      "images/products/under-armour-3-7617ac0324.jpg",
+      "images/products/under-armour-4-316f765d4f.jpg",
+      "images/products/under-armour-5-e9c8884dee.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-07T17:12:45.777013"
+  },
+  {
     "id": "1786122143386",
     "brand": "",
     "name": "Adidas",
