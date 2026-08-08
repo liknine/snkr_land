@@ -696,13 +696,11 @@
     "category": "Мужская обувь",
     "mainCatalogVisible": true,
     "sizes": [
-      "41",
       "42",
       "43",
       "44"
     ],
     "sizeStock": {
-      "41": 1,
       "42": 2,
       "43": 1,
       "44": 1
