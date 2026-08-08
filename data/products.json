@@ -1,5 +1,39 @@
 [
   {
+    "id": "1786204093700",
+    "brand": "",
+    "name": "Maison-Margiela",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 1,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/maison-margiela-1-db10d0189d.jpg",
+      "images/products/maison-margiela-2-9ad40cde98.jpg",
+      "images/products/maison-margiela-3-0b955d1abd.jpg",
+      "images/products/maison-margiela-4-d4907ef16e.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T15:54:01.062413"
+  },
+  {
     "id": "1786203754697",
     "brand": "",
     "name": "Numeris",
