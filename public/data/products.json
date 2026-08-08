@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786202128553",
+    "brand": "",
+    "name": "Numeris",
+    "color": "",
+    "price": 220,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/numeris-1-e51bc7b34d.jpg",
+      "images/products/numeris-2-c6ea77148b.jpg",
+      "images/products/numeris-3-e76e527072.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T15:15:47+00:00"
+  },
+  {
     "id": "1786136370965",
     "brand": "",
     "name": "Nike",
