@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786202919197",
+    "brand": "",
+    "name": "Ж Adidas",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "mainCatalogVisible": false,
+    "sizes": [
+      "40",
+      "37",
+      "39",
+      "41",
+      "38"
+    ],
+    "sizeStock": {
+      "40": 2,
+      "37": 1,
+      "39": 2,
+      "41": 1,
+      "38": 3
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/zh-adidas-1-435d099ad2.jpg",
+      "images/products/zh-adidas-2-9067b22e02.jpg",
+      "images/products/zh-adidas-3-5bb5c2eca1.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T15:28:58+00:00"
+  },
+  {
     "id": "1786202279122",
     "brand": "",
     "name": "PHILIPPE MODEL",
