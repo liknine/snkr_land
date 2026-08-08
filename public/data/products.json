@@ -1,5 +1,39 @@
 [
   {
+    "id": "1786204502277",
+    "brand": "",
+    "name": "Maison-Margiela",
+    "color": "",
+    "price": 180,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 1,
+      "43": 1,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/maison-margiela-1-72e809e3ee.jpg",
+      "images/products/maison-margiela-2-8349e2c054.jpg",
+      "images/products/maison-margiela-3-dea4d18ac2.jpg",
+      "images/products/maison-margiela-4-89fec35702.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T16:03:36.321405"
+  },
+  {
     "id": "1786204093700",
     "brand": "",
     "name": "Maison-Margiela",
