@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786202279122",
+    "brand": "",
+    "name": "PHILIPPE MODEL",
+    "color": "",
+    "price": 220,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/philippe-model-1-0bf0858287.jpg",
+      "images/products/philippe-model-2-fb4c5c86ef.jpg",
+      "images/products/philippe-model-3-0b112f7dd2.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T15:23:07.337313"
+  },
+  {
     "id": "1786202128553",
     "brand": "",
     "name": "Numeris",
