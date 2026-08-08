@@ -1,5 +1,39 @@
 [
   {
+    "id": "1786203754697",
+    "brand": "",
+    "name": "Numeris",
+    "color": "",
+    "price": 160,
+    "section": "women",
+    "category": "Женская обувь",
+    "mainCatalogVisible": false,
+    "sizes": [
+      "37",
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "sizeStock": {
+      "37": 1,
+      "38": 1,
+      "39": 2,
+      "40": 2,
+      "41": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/numeris-1-b308aba0ba.jpg",
+      "images/products/numeris-2-692634c142.jpg",
+      "images/products/numeris-3-baca5b8e0a.jpg",
+      "images/products/numeris-4-0bdfb0e012.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T15:42:48+00:00"
+  },
+  {
     "id": "1786203599769",
     "brand": "",
     "name": "Numeris",
