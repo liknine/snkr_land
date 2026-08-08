@@ -1,5 +1,40 @@
 [
   {
+    "id": "1786203322054",
+    "brand": "",
+    "name": "Asics",
+    "color": "",
+    "price": 160,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 1,
+      "45": 1,
+      "46": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/asics-1-e1432603dc.jpg",
+      "images/products/asics-2-74ba992298.jpg",
+      "images/products/asics-3-ef636a3d71.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-08T15:37:09+00:00"
+  },
+  {
     "id": "1786202919197",
     "brand": "",
     "name": "Ж Adidas",
