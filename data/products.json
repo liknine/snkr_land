@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786465366156",
+    "brand": "",
+    "name": "Dior",
+    "color": "",
+    "price": 200,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/dior-1-0ddd106e1c.jpg",
+      "images/products/dior-2-485d892134.jpg",
+      "images/products/dior-3-a51a3a29e3.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-11T16:23:08+00:00"
+  },
+  {
     "id": "1786465092065",
     "brand": "",
     "name": "Golden-Goose",
