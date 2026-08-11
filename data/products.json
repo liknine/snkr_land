@@ -1,5 +1,39 @@
 [
   {
+    "id": "1786464563719",
+    "brand": "",
+    "name": "Louis-Vuitton",
+    "color": "",
+    "price": 200,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/louis-vuitton-1-822cae11a1.jpg",
+      "images/products/louis-vuitton-2-9886a94c35.jpg",
+      "images/products/louis-vuitton-3-ef4ea752b8.jpg",
+      "images/products/louis-vuitton-4-d059221026.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-11T16:09:55+00:00"
+  },
+  {
     "id": "1786464393633",
     "brand": "",
     "name": "Nike",
