@@ -1,5 +1,38 @@
 [
   {
+    "id": "1786464393633",
+    "brand": "",
+    "name": "Nike",
+    "color": "",
+    "price": 170,
+    "section": "men",
+    "category": "Мужская обувь",
+    "mainCatalogVisible": true,
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "sizeStock": {
+      "41": 1,
+      "42": 2,
+      "43": 2,
+      "44": 2,
+      "45": 1
+    },
+    "description": "По всем вопросам обращайтесь к менеджеру.",
+    "images": [
+      "images/products/nike-1-35f6387ae7.jpg",
+      "images/products/nike-2-c4dd76f4cd.jpg",
+      "images/products/nike-3-dfad76127f.jpg"
+    ],
+    "isFavorite": false,
+    "isActive": true,
+    "createdAt": "2026-08-11T16:06:55+00:00"
+  },
+  {
     "id": "1786204502277",
     "brand": "",
     "name": "Maison-Margiela",
