@@ -1,5 +1,48 @@
 [
   {
+    "id": "37",
+    "orderNumber": 37,
+    "clientOrderId": "snkr-1787336350461",
+    "telegramId": "5975146956",
+    "username": "dAxzh",
+    "productId": "1786465092065",
+    "productSnapshot": {
+      "id": "1786465092065",
+      "brand": "",
+      "name": "Golden-Goose",
+      "color": "",
+      "price": 220,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "images": [
+        "images/products/golden-goose-1-65e4d47cd3.jpg",
+        "images/products/golden-goose-2-01513d4f7b.jpg",
+        "images/products/golden-goose-3-9a2b0eb8ab.jpg",
+        "images/products/golden-goose-4-fb2a5121da.jpg",
+        "images/products/golden-goose-5-5f8cb4701b.jpg"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-08-21T18:19:11"
+    },
+    "size": "41",
+    "quantity": 1,
+    "totalPrice": 220,
+    "phone": "3753333448113",
+    "deliveryType": "delivery",
+    "address": "гродно, улица калиновского дом 50",
+    "comment": "",
+    "status": "new",
+    "createdAt": "2026-08-21T18:19:11",
+    "updatedAt": ""
+  },
+  {
     "id": "36",
     "orderNumber": 36,
     "clientOrderId": "snkr-1782575090429",
