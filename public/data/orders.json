@@ -38,7 +38,7 @@
     "deliveryType": "delivery",
     "address": "гродно, улица калиновского дом 50",
     "comment": "",
-    "status": "new",
+    "status": "accepted",
     "createdAt": "2026-08-21T18:19:11",
     "updatedAt": ""
   },
