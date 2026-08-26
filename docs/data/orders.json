@@ -1,5 +1,47 @@
 [
   {
+    "id": "38",
+    "orderNumber": 38,
+    "clientOrderId": "snkr-1787747445805",
+    "telegramId": "1210163848",
+    "username": "",
+    "productId": "1786122143386",
+    "productSnapshot": {
+      "id": "1786122143386",
+      "brand": "",
+      "name": "Adidas",
+      "color": "",
+      "price": 180,
+      "sizes": [
+        "43",
+        "42",
+        "41",
+        "44"
+      ],
+      "images": [
+        "images/products/adidas-1-f668a5b646.jpg",
+        "images/products/adidas-2-3f80deb594.jpg",
+        "images/products/adidas-3-1c8e4a6ecf.jpg",
+        "images/products/adidas-4-0e9651b67d.jpg",
+        "images/products/adidas-5-e8e213793a.jpg",
+        "images/products/adidas-6-46b2ca50f7.jpg"
+      ],
+      "isFavorite": false,
+      "isActive": true,
+      "createdAt": "2026-08-26T12:30:46"
+    },
+    "size": "43",
+    "quantity": 1,
+    "totalPrice": 180,
+    "phone": "+375297469914",
+    "deliveryType": "delivery",
+    "address": "Г. Полоцк, Пушкина 11, квартира 35",
+    "comment": "Удобно было бы до 14:00 в будние дни. Если позже 14:00, тогда на адрес Г. Новополоцк, улица Блохина 19, квартира 60",
+    "status": "new",
+    "createdAt": "2026-08-26T12:30:46",
+    "updatedAt": ""
+  },
+  {
     "id": "37",
     "orderNumber": 37,
     "clientOrderId": "snkr-1787336350461",
